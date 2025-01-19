@@ -1,0 +1,11 @@
+version: 3
+
+tasks:
+  default:
+    silent: true
+    cmds: ["task -l"]
+
+  macos:
+    desc: Run stow for macos
+    cmds:
+      - stow macos -t $HOME
