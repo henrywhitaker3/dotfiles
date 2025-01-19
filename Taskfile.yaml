@@ -5,7 +5,16 @@ tasks:
     silent: true
     cmds: ["task -l"]
 
+  .stow:
+    requires:
+      vars:
+        - platform
+      cmds:
+        - stow {{ .platform }} -t $HOME --no-folding
+
   macos:
     desc: Run stow for macos
     cmds:
-      - stow macos -t $HOME
+      - task: .stow
+        vars:
+          platform: macos
