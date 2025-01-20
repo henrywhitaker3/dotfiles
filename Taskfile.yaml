@@ -9,12 +9,23 @@ tasks:
     requires:
       vars:
         - platform
-      cmds:
-        - stow {{ .platform }} -t $HOME --no-folding
+    cmds:
+      - stow {{ .platform }} -t $HOME --no-folding
 
-  macos:
+  macos:stow:
     desc: Run stow for macos
     cmds:
       - task: .stow
         vars:
           platform: macos
+
+  macos:init:
+    desc: Init macos things
+    cmds:
+      - ./macos/init.sh
+
+  macos:
+    desc: Run macos:init and macos:stow
+    cmds:
+      - task: macos:init
+      - task: macos:stow

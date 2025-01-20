@@ -122,3 +122,4 @@ alias k=kubectl
 source <(kubectl completion zsh)
 compdef k='kubectl'
 
+alias grep=ggrep
