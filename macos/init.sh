@@ -48,6 +48,7 @@ install_brew_things() {
     brew install grep
     brew install yq
     brew install jq
+    brew install discord
 }
 
 install_homebrew
