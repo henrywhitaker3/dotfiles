@@ -46,6 +46,8 @@ install_brew_things() {
     brew install --cask google-chrome
     brew install visual-studio-code
     brew install grep
+    brew install yq
+    brew install jq
 }
 
 install_homebrew
