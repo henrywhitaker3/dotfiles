@@ -49,6 +49,9 @@ install_brew_things() {
     brew install yq
     brew install jq
     brew install discord
+    brew install ansible
+    brew install nmap
+    brew install zsh-syntax-highlighting
 }
 
 install_homebrew

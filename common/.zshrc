@@ -123,3 +123,4 @@ source <(kubectl completion zsh)
 compdef k='kubectl'
 
 alias grep=ggrep
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
