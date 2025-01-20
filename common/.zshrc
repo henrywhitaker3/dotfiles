@@ -130,3 +130,5 @@ autoload -U promptinit; promptinit
 prompt pure
 
 source <(fzf --zsh)
+
+export SOPS_AGE_KEY_FILE=$HOME/.age.key
