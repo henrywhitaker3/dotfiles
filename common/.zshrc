@@ -124,3 +124,9 @@ compdef k='kubectl'
 
 alias grep=ggrep
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
+
+source <(fzf --zsh)

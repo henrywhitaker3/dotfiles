@@ -52,8 +52,23 @@ install_brew_things() {
     brew install ansible
     brew install nmap
     brew install zsh-syntax-highlighting
+    brew install wget
+    brew install pure
+    brew install ollama
+}
+
+install_iterm_theme() {
+    if [[ ! -f "$HOME/.0x96f.itermcolors" ]]; then
+        echo Installing 0x96f.itermcolors
+        wget https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/0x96f.itermcolors -O $HOME/.0x96f.itermcolors
+    fi
 }
 
 install_homebrew
 install_ohmyzsh
 install_brew_things
+install_iterm_theme
+
+git config --global user.name "Henry Whitaker"
+git config --global user.email "henrywhitaker3@outlook.com"
+git config --global core.excludesFile '~/.gitignore'
