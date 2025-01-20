@@ -59,6 +59,7 @@ install_brew_things() {
     brew install pipx
     brew install findutils
     brew install ffmpeg
+    brew install mediainfo
 }
 
 install_iterm_theme() {
