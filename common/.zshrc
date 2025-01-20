@@ -123,6 +123,7 @@ source <(kubectl completion zsh)
 compdef k='kubectl'
 
 alias grep=ggrep
+alias sed=gsed
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
