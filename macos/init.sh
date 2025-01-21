@@ -60,6 +60,7 @@ install_brew_things() {
     brew install findutils
     brew install ffmpeg
     brew install mediainfo
+    brew install ripgrep
     brew install luarocks
     brew install neovim
 }
@@ -75,13 +76,13 @@ install_audible() {
     mkdir -p ~/.local/bin
 
     if [[ ! -f "$HOME/.local/bin/audible" ]]; then
-	echo Installing audible-cli
+        echo Installing audible-cli
         pipx install audible-cli
     fi
     if [[ ! -f "$HOME/.local/bin/aaxtomp3" ]]; then
-	echo Installing aaxtomp3
-	wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
-	chmod +x "$HOME/.local/bin/aaxtomp3"
+        echo Installing aaxtomp3
+        wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
+        chmod +x "$HOME/.local/bin/aaxtomp3"
     fi
 }
 
