@@ -1,0 +1,9 @@
+alias k=kubectl
+source <(kubectl completion zsh)
+compdef k='kubectl'
+
+alias grep=ggrep
+alias sed=gsed
+
+alias dc='docker compose'
+

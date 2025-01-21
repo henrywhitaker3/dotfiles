@@ -118,12 +118,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export OLLAMA_HOST="10.0.0.54"
 
-alias k=kubectl
-source <(kubectl completion zsh)
-compdef k='kubectl'
-
-alias grep=ggrep
-alias sed=gsed
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
@@ -133,3 +127,7 @@ prompt pure
 source <(fzf --zsh)
 
 export SOPS_AGE_KEY_FILE=$HOME/.age.key
+
+if [[ -f "$HOME/.zsh_aliases" ]]; then
+    source $HOME/.zsh_aliases
+fi
