@@ -10,13 +10,15 @@ tasks:
       vars:
         - platform
     cmds:
+      - rm $HOME/.bashrc $HOME/.bash_aliases $HOME/.zshrc $HOME/.zsh_aliases
       - stow {{ .platform }} -t $HOME --no-folding
 
   linux:
     desc: Run stow for linux
     cmds:
       - task: .stow
-        platform: linux
+        vars:
+          platform: linux
 
   macos:stow:
     desc: Run stow for macos
