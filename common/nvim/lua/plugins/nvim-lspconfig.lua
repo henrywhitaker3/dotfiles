@@ -25,6 +25,9 @@ local config = function()
 					-- (most likely LuaJIT in the case of Neovim)
 					version = "LuaJIT",
 				},
+				diagnostics = {
+					globals = { "vim" },
+				},
 				-- Make the server aware of Neovim runtime files
 				workspace = {
 					checkThirdParty = false,
@@ -39,13 +42,6 @@ local config = function()
 				},
 			})
 		end,
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-			},
-		},
 	})
 
 	local luacheck = require("efmls-configs.linters.luacheck")
@@ -74,12 +70,12 @@ local config = function()
 	vim.api.nvim_create_autocmd("BufWritePost", {
 		group = lsp_fmt_group,
 		callback = function()
-            local efm
-            if vim.lsp.get_clients then
-                efm = vim.lsp.get_clients({ name = "efm" })
-            else
-                efm = vim.lsp.get_active_clients({ name = "efm" })
-            end
+			local efm
+			if vim.lsp.get_clients then
+				efm = vim.lsp.get_clients({ name = "efm" })
+			else
+				efm = vim.lsp.get_active_clients({ name = "efm" })
+			end
 
 			if vim.tbl_isempty(efm) then
 				return
