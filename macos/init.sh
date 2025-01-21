@@ -29,6 +29,7 @@ install_brew_things() {
     brew install tor-browser
     brew install calibre
     brew install vim
+    brew install go
     brew tap hashicorp/tap
     brew install hashicorp/tap/terraform
     brew install watch
