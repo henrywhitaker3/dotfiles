@@ -12,6 +12,12 @@ tasks:
     cmds:
       - stow {{ .platform }} -t $HOME --no-folding
 
+  linux:
+    desc: Run stow for linux
+    cmds:
+      - task: .stow
+        platform: linux
+
   macos:stow:
     desc: Run stow for macos
     cmds:
