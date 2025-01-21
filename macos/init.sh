@@ -98,3 +98,5 @@ git config --global user.name "Henry Whitaker"
 git config --global user.email "henrywhitaker3@outlook.com"
 git config --global core.excludesFile '~/.gitignore'
 
+echo Cleaning up defaults
+common/clean.sh

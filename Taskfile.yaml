@@ -10,10 +10,20 @@ tasks:
       vars:
         - platform
     cmds:
-      - rm $HOME/.bashrc $HOME/.bash_aliases $HOME/.zshrc $HOME/.zsh_aliases
       - stow {{ .platform }} -t $HOME --no-folding
 
   linux:
+    desc: Setup linux env
+    cmds:
+      - task: linux:init
+      - task: linux:stow
+
+  linux:init:
+    desc: Run the linux init script
+    cmds:
+      - ./linux/init.sh
+
+  linux:stow:
     desc: Run stow for linux
     cmds:
       - task: .stow
