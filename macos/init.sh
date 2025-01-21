@@ -60,6 +60,7 @@ install_brew_things() {
     brew install findutils
     brew install ffmpeg
     brew install mediainfo
+    brew install luarocks
     brew install neovim
 }
 
