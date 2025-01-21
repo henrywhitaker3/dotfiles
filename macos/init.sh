@@ -63,6 +63,7 @@ install_brew_things() {
     brew install ripgrep
     brew install luarocks
     brew install neovim
+    brew install --cask font-fira-code-nerd-font
 }
 
 install_iterm_theme() {

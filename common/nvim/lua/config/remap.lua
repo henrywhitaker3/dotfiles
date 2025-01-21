@@ -1,2 +1,13 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, opts)
+vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>", opts)
+vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
+vim.keymap.set("n", "<leader>sh", ":split<CR>", opts)
