@@ -7,3 +7,4 @@ alias sed=gsed
 
 alias dc='docker compose'
 
+alias vim=nvim
