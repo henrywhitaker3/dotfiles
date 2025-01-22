@@ -21,6 +21,12 @@ vim.api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-/>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
+
 -- Indeting
 vim.keymap.set("v", "<C-[>", "<gv", opts)
 vim.keymap.set("v", "<C-]>", ">gv", opts)
+
+-- Buffers
+vim.keymap.set("n", "<leader>bw", ":bw<CR>", opts)
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", opts)
+vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
