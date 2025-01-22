@@ -17,6 +17,11 @@ sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
 
+# Install node
+curl -fsSL https://deb.nodesource.com/setup_23.x | sudo bash
+
+sudo apt install nodejs -y
+
 if [[ ! -d "$HOME/go" ]]; then
 current=$(pwd)
     curl https://go.dev/dl/go1.23.5.linux-amd64.tar.gz -O /tmp/go.tar.gz
