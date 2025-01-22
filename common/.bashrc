@@ -134,5 +134,3 @@ export OLLAMA_HOST=http://10.0.0.226:11434
 complete -C /usr/bin/terraform terraform
 
 eval "$(fzf --bash)"
-export FXF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --exclude node_modules --exclude vendor"
-. "$HOME/.cargo/env"
