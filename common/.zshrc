@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:/usr/local/go/bin:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go"
 bindkey -e
 bindkey '\e\e[C' forward-word
 bindkey '\e\e[D' backward-word 
@@ -114,11 +114,15 @@ bindkey '\e[H'    beginning-of-line
 bindkey '\e[F'    end-of-line
 
 eval "$(task --completion zsh)"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 export OLLAMA_HOST="10.0.0.54"
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit

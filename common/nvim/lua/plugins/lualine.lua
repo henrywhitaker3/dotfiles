@@ -9,13 +9,6 @@ return {
 				theme = theme,
 				globalstatus = true,
 			},
-			sections = {
-				lualine_a = {
-					{
-						"buffers",
-					},
-				},
-			},
 		})
 	end,
 }
