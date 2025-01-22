@@ -143,3 +143,7 @@ export SOPS_AGE_KEY_FILE=$HOME/.age.key
 if [[ -f "$HOME/.zsh_aliases" ]]; then
     source $HOME/.zsh_aliases
 fi
+
+if [[ -d /opt/nvim-linux64 ]]; then
+    export PATH="$PATH:/opt/nvim-linux64/bin"
+fi
