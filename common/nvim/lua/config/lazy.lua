@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
+        { "folke/neoconf.nvim" },
         -- import your plugins
         { import = "plugins" },
     },

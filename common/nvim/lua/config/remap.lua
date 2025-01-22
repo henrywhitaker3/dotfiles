@@ -16,8 +16,11 @@ vim.keymap.set("n", "<leader>sh", ":split<CR>", opts)
 
 -- Commenting
 vim.api.nvim_set_keymap("i", "<C-/>", "<esc>gcc<S-a>", { noremap = false })
+vim.api.nvim_set_keymap("i", "<C-_>", "<esc>gcc<S-a>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = false })
+vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-/>", "gcc", { noremap = false })
+vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 -- Indeting
 vim.keymap.set("v", "<C-[>", "<gv", opts)
 vim.keymap.set("v", "<C-]>", ">gv", opts)

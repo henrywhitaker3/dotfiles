@@ -1,6 +1,7 @@
 local config = function()
 	local lspconfig = require("lspconfig")
-	-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local capabilities = cmp_nvim_lsp.default_capabilities()
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
@@ -9,14 +10,20 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
-    local on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true, buffer = bufnr }
+	local on_attach = function(client, bufnr)
+		local opts = { noremap = true, silent = true, buffer = bufnr }
 
-        vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
-    end
+		vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
+		vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+		vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+		vim.keymap.set("n", "<leader>nd", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+		vim.keymap.set("n", "<leader>pd", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+	end
 
 	lspconfig.lua_ls.setup({
-		-- capabilitites = capabilities,
+		capabilitites = capabilities,
 		on_attach = on_attach,
 		settings = {
 			Lua = {
@@ -86,6 +93,6 @@ return {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
 		"creativenull/efmls-configs-nvim",
-		-- "hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lsp",
 	},
 }
