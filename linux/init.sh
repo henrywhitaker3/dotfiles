@@ -35,13 +35,13 @@ curl -fsSL https://deb.nodesource.com/setup_23.x | sudo bash
 
 sudo apt install nodejs -y
 
-if [[ ! -d "$HOME/go" ]]; then
+if [[ ! -d "$HOME/.go" ]]; then
 	current=$(pwd)
 	curl https://go.dev/dl/go1.23.5.linux-amd64.tar.gz -O /tmp/go.tar.gz
 	cd /tmp && tar -xzvf go.tar.gz && mv go "$HOME/" && cd "$current" || exit 1
 fi
 
-"$HOME/go/bin/go" install golang.org/x/tools/gopls@latest
+"$HOME/go/bin/.go" install golang.org/x/tools/gopls@latest
 
 echo Cleaning default config file
 ./common/clean.sh
