@@ -26,6 +26,8 @@ return {
                 "markdown",
                 "markdown_inline",
                 "css",
+                "terraform",
+                "hcl",
             },
             sync_install = false,
             highlight = { enable = true },

@@ -63,6 +63,17 @@ local config = function()
 		},
 	})
 
+    local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
+
+    lspconfig.terraformls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = { "terraform" },
+        settings = {
+            terraformls = {},
+        }
+    })
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 
@@ -70,6 +81,7 @@ local config = function()
 		filetypes = {
 			"lua",
             "go",
+            "terraform",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -83,6 +95,7 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
                 go = { gofmt, goimport },
+                terraform = { terraform_fmt },
 			},
 		},
 	})
