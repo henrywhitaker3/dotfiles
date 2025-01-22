@@ -65,6 +65,7 @@ install_brew_things() {
 	brew install luarocks
 	brew install neovim
 	brew install --cask font-fira-code-nerd-font
+	brew install delve
 }
 
 install_iterm_theme() {
