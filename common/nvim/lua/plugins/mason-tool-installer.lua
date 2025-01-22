@@ -8,6 +8,8 @@ return {
 			"luacheck",
 			"gopls",
             "terraform-ls",
+            "volar",
+            "eslint_d",
 		},
 	},
 }

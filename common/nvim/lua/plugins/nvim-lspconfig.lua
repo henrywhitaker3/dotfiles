@@ -44,8 +44,8 @@ local config = function()
 	})
 
 	local util = require("lspconfig/util")
-    local gofmt = require("efmls-configs.formatters.gofmt")
-    local goimport = require("efmls-configs.formatters.goimports")
+	local gofmt = require("efmls-configs.formatters.gofmt")
+	local goimport = require("efmls-configs.formatters.goimports")
 
 	lspconfig.gopls.setup({
 		on_attach = on_attach,
@@ -63,16 +63,20 @@ local config = function()
 		},
 	})
 
-    local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
+	local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
 
-    lspconfig.terraformls.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = { "terraform" },
-        settings = {
-            terraformls = {},
-        }
-    })
+	lspconfig.terraformls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = { "terraform" },
+		settings = {
+			terraformls = {},
+		},
+	})
+
+	require("plugins.lsp.volar")(on_attach, capabilities)
+	local eslint_df = require("efmls-configs.formatters.eslint_d")
+	local eslint_dl = require("efmls-configs.linters.eslint_d")
 
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
@@ -80,8 +84,10 @@ local config = function()
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
-            "go",
-            "terraform",
+			"go",
+			"terraform",
+			"typescript",
+			"vue",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -94,14 +100,16 @@ local config = function()
 		settings = {
 			languages = {
 				lua = { luacheck, stylua },
-                go = { gofmt, goimport },
-                terraform = { terraform_fmt },
+				go = { gofmt, goimport },
+				terraform = { terraform_fmt },
+				typescript = { eslint_df, eslint_dl },
+				vue = { eslint_df, eslint_dl },
 			},
 		},
 	})
 
 	local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-	vim.api.nvim_create_autocmd("BufWritePost", {
+	vim.api.nvim_create_autocmd("BufWritePre", {
 		group = lsp_fmt_group,
 		callback = function()
 			local efm
