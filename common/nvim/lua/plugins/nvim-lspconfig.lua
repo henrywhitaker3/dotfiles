@@ -22,64 +22,20 @@ local config = function()
 		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	end
 
-	lspconfig.lua_ls.setup({
-		capabilitites = capabilities,
-		on_attach = on_attach,
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-				runtime = {
-					version = "LuaJIT",
-				},
-				workspace = {
-					checkThirdParty = false,
-					library = {
-						vim.env.VIMRUNTIME .. "/lua",
-					},
-				},
-			},
-		},
-	})
+	local lua = require("plugins.lsp.lua")
+	lua.setup(on_attach, capabilities)
 
-	local util = require("lspconfig/util")
-	local gofmt = require("efmls-configs.formatters.gofmt")
-	local goimport = require("efmls-configs.formatters.goimports")
+	local go = require("plugins.lsp.go")
+	go.setup(on_attach, capabilities)
 
-	lspconfig.gopls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		cmd = { "gopls" },
-		filetypes = { "go", "gomod", "gowork", "gotmpl" },
-		root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-		settings = {
-			gopls = {
-				completeUnimported = true,
-				analyses = {
-					unusedparams = true,
-				},
-			},
-		},
-	})
+	local terraform = require("plugins.lsp.terraform")
+	terraform.setup(on_attach, capabilities)
 
-	local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
+	local vue = require("plugins.lsp.volar")
+	vue.setup(on_attach, capabilities)
 
-	lspconfig.terraformls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		filetypes = { "terraform" },
-		settings = {
-			terraformls = {},
-		},
-	})
-
-	require("plugins.lsp.volar")(on_attach, capabilities)
-	local eslint_df = require("efmls-configs.formatters.eslint_d")
-	local eslint_dl = require("efmls-configs.linters.eslint_d")
-
-	local luacheck = require("efmls-configs.linters.luacheck")
-	local stylua = require("efmls-configs.formatters.stylua")
+	local typescript = require("plugins.lsp.typescript")
+	typescript.setup(on_attach, capabilities)
 
 	lspconfig.efm.setup({
 		filetypes = {
@@ -87,6 +43,7 @@ local config = function()
 			"go",
 			"terraform",
 			"typescript",
+			"javascript",
 			"vue",
 		},
 		init_options = {
@@ -99,11 +56,11 @@ local config = function()
 		},
 		settings = {
 			languages = {
-				lua = { luacheck, stylua },
-				go = { gofmt, goimport },
-				terraform = { terraform_fmt },
-				typescript = { eslint_df, eslint_dl },
-				vue = { eslint_df, eslint_dl },
+				lua = lua.lang,
+				go = go.lang,
+				terraform = terraform.lang,
+				typescript = typescript.lang,
+				vue = vue.lang,
 			},
 		},
 	})

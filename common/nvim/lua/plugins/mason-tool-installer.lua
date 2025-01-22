@@ -7,9 +7,10 @@ return {
 			"stylua",
 			"luacheck",
 			"gopls",
-            "terraform-ls",
-            "volar",
-            "eslint_d",
+			"terraform-ls",
+			"volar",
+			"eslint_d",
+			"ts_ls",
 		},
 	},
 }
