@@ -1,13 +1,34 @@
 return {
-	'nvim-telescope/telescope.nvim',
-	tag = '0.1.8',
-	dependencies = { 'nvim-lua/plenary.nvim' },
+	"nvim-telescope/telescope.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	-- lazy = true,
 	config = function()
-		local builtin = require('telescope.builtin')
-		vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-		vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-		vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-		vim.keymap.set('n', '<leader>gs', "<cmd>Telescope git_status<CR>", {})
-		vim.keymap.set('n', '<leader>gcm', "<cmd>Telescope git_commits<CR>", {})
-	end
+		local telescope = require("telescope")
+
+		telescope.setup({
+			pickers = {
+				find_files = {
+					theme = "dropdown",
+					previewer = false,
+				},
+				live_grep = {
+					theme = "dropdown",
+				},
+				find_buffers = {
+					theme = "dropdown",
+					previewer = false,
+				},
+				git_files = {
+					theme = "dropdown",
+					previewer = false,
+				},
+			},
+		})
+
+		vim.keymap.set("n", "<leader>ps", ":Telescope live_grep<CR>", {})
+		vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", {})
+		vim.keymap.set("n", "<C-p>", ":Telescope git_files<CR>", {})
+		vim.keymap.set("n", "<leader>pb", ":Telescope buffers<CR>", {})
+		vim.keymap.set("n", "<leader>gcm", ":Telescope git_commits<CR>", {})
+	end,
 }
