@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-    lazy = false,
+	lazy = false,
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
@@ -23,7 +23,7 @@ return {
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
@@ -31,12 +31,12 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 			}),
-            formatting = {
-                format = lspkind.cmp_format({
-                    maxwidth = 50,
-                    ellipsis_char = "... ",
-                })
-            }
+			formatting = {
+				format = lspkind.cmp_format({
+					maxwidth = 50,
+					ellipsis_char = "... ",
+				}),
+			},
 		})
 	end,
 	dependencies = {
