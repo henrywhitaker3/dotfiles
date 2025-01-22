@@ -1,16 +1,21 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		routes = {
+			{
+				filter = {
+					event = "notify",
+					find = "No information available",
+				},
+				opts = {
+					skip = true,
+				},
+			},
+		},
+	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-		{
-			"rcarriga/nvim-notify",
-			config = function()
-				require("notify").setup({
-					background_colour = "#000000",
-				})
-			end,
-		},
+		"rcarriga/nvim-notify",
 	},
 }
