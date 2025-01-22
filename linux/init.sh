@@ -8,7 +8,20 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashi
 
 sudo apt update
 
-sudo apt install -y vim wget gcc ripgrep luarocks zsh stow git fzf terraform fonts-firacode make
+sudo apt install -y vim \
+	wget \
+	gcc \
+	ripgrep \
+	luarocks \
+	zsh \
+	stow \
+	git \
+	fzf \
+	terraform \
+	fonts-firacode \
+	make \
+	python3 \
+	python3-venv
 
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
 
