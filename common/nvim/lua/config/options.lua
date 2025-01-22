@@ -11,7 +11,11 @@ opt.wrap = false
 -- Set default indentation for specific file types
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {"*.tf", "*.yaml", "*.yml", "*.ts", "*.js", "*.vue"},
-    command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2"
+    callback = function()
+        opt.tabstop = 2
+        opt.shiftwidth = 2
+        opt.softtabstop = 2
+    end
 })
 
 -- Search
