@@ -40,6 +40,9 @@ local config = function()
 	local yaml = require("plugins.lsp.yaml")
 	yaml.setup(on_attach, capabilities)
 
+	local sql = require("plugins.lsp.sql")
+	sql.setup(on_attach, capabilities)
+
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
@@ -50,6 +53,8 @@ local config = function()
 			"vue",
 			"helm",
 			"yaml",
+			"sql",
+			"mysql",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -68,6 +73,8 @@ local config = function()
 				vue = vue.lang,
 				yaml = yaml.lang,
 				helm = yaml.lang,
+				sql = sql.lang,
+				mysql = sql.lang,
 			},
 		},
 	})

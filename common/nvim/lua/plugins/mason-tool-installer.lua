@@ -15,6 +15,8 @@ return {
 			"yaml-language-server",
 			"yamllint",
 			"prettier",
+			"sqlls",
+			"sqlfluff",
 		},
 	},
 }
