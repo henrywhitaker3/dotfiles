@@ -147,3 +147,7 @@ fi
 if [[ -d /opt/nvim-linux64 ]]; then
     export PATH="$PATH:/opt/nvim-linux64/bin"
 fi
+
+if [[ -d "$HOME/.orbstack" ]]; then
+    export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
+fi
