@@ -29,6 +29,7 @@ return {
 		vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", {})
 		vim.keymap.set("n", "<C-p>", ":Telescope git_files<CR>", {})
 		vim.keymap.set("n", "<leader>pb", ":Telescope buffers<CR>", {})
+		vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", {})
 		vim.keymap.set("n", "<leader>gcm", ":Telescope git_commits<CR>", {})
 	end,
 }
