@@ -14,7 +14,7 @@ return {
 				live_grep = {
 					theme = "dropdown",
 				},
-				find_buffers = {
+				buffers = {
 					theme = "dropdown",
 					previewer = false,
 				},
