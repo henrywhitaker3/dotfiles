@@ -8,9 +8,9 @@ if [[ ! -f "/usr/share/keyrings/hashicorp-archive-keyring.gpg" ]]; then
 	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 fi
 
-sudo apt update
+curl -fsSL https://deb.nodesource.com/setup_23.x | sudo bash
 
-sudo apt install -y vim \
+sudo apt update && sudo apt install -y vim \
 	wget \
 	gcc \
 	ripgrep \
@@ -23,7 +23,8 @@ sudo apt install -y vim \
 	fonts-firacode \
 	make \
 	python3 \
-	python3-venv
+	python3-venv \
+	nodejs
 
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
 
@@ -31,11 +32,6 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
-
-# Install node
-curl -fsSL https://deb.nodesource.com/setup_23.x | sudo bash
-
-sudo apt install nodejs -y
 
 if [[ ! -d "$HOME/.go" ]]; then
 	current=$(pwd)
