@@ -8,6 +8,12 @@ opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
 
+-- Set default indentation for specific file types
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"*.tf", "*.yaml", "*.yml", "*.ts", "*.js", "*.vue"},
+    command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2"
+})
+
 -- Search
 opt.incsearch = true
 opt.ignorecase = true
