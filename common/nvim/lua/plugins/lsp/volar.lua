@@ -8,6 +8,12 @@ local setup = function(on_attach, capabilities)
 				hybridMode = false,
 			},
 		},
+		init_options = {
+			typescript = {
+				tsdk = vim.env.HOME
+					.. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/",
+			},
+		},
 	})
 end
 
