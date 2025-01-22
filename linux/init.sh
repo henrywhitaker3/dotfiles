@@ -54,6 +54,7 @@ fi
 
 "$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
 "$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
+"$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

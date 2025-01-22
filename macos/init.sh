@@ -66,6 +66,7 @@ install_brew_things() {
 	brew install neovim
 	brew install --cask font-fira-code-nerd-font
 	brew install delve
+	brew install gotests
 }
 
 install_iterm_theme() {
