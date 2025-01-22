@@ -198,6 +198,7 @@
   },
   "Silence Bell" : false,
   "Rows" : 25,
+  "Draw Powerline Glyphs" : false,
   "Guid" : "A1BAFAA1-90A9-445F-97CB-9D70AB5E4E11",
   "Ansi 14 Color (Dark)" : {
     "Red Component" : 0.68235296010971069,
@@ -376,6 +377,7 @@
     "Green Component" : 0.35333043336868286
   },
   "Description" : "Default",
+  "Blink Allowed" : false,
   "Ansi 7 Color (Dark)" : {
     "Red Component" : 0.98823529481887817,
     "Color Space" : "sRGB",
@@ -503,7 +505,6 @@
     "Alpha Component" : 1,
     "Green Component" : 0.78105825185775757
   },
-  "Non Ascii Font" : "Monaco 12",
   "Ansi 6 Color (Dark)" : {
     "Red Component" : 0.68235296010971069,
     "Color Space" : "sRGB",
@@ -518,6 +519,7 @@
     "Alpha Component" : 0.25,
     "Green Component" : 0.77217715978622437
   },
+  "Unicode Version" : 9,
   "Custom Directory" : "No",
   "Working Directory" : "\/Users\/henry",
   "ASCII Anti Aliased" : true,
@@ -563,7 +565,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.7607843279838562
   },
-  "Normal Font" : "FiraCodeNFM-Reg 14",
+  "Normal Font" : "FiraCodeNF-Reg 14",
   "Unlimited Scrollback" : false,
   "Ansi 12 Color (Light)" : {
     "Red Component" : 0.39215686274509803,
