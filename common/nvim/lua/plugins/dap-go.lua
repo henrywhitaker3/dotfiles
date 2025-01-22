@@ -10,8 +10,5 @@ return {
 		vim.keymap.set("n", "<leader>gdt", function()
 			require("dap-go").debug_test()
 		end, opts)
-		vim.keymap.set("n", "<leader>dso", "<cmd>DapStepOver<CR>", opts)
-		vim.keymap.set("n", "<leader>dsi", "<cmd>DapStepInto<CR>", opts)
-		vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>", opts)
 	end,
 }
