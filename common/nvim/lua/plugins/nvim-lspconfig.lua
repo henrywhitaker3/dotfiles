@@ -1,7 +1,7 @@
 local config = function()
 	local lspconfig = require("lspconfig")
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+	local capabilities = cmp_nvim_lsp.default_capabilities()
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
@@ -43,12 +43,33 @@ local config = function()
 		},
 	})
 
+	local util = require("lspconfig/util")
+    local gofmt = require("efmls-configs.formatters.gofmt")
+    local goimport = require("efmls-configs.formatters.goimports")
+
+	lspconfig.gopls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		cmd = { "gopls" },
+		filetypes = { "go", "gomod", "gowork", "gotmpl" },
+		root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+		settings = {
+			gopls = {
+				completeUnimported = true,
+				analyses = {
+					unusedparams = true,
+				},
+			},
+		},
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
+            "go",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -61,6 +82,7 @@ local config = function()
 		settings = {
 			languages = {
 				lua = { luacheck, stylua },
+                go = { gofmt, goimport },
 			},
 		},
 	})
