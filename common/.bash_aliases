@@ -4,3 +4,5 @@ alias bb='crog -c /home/henry/crog.yaml remote run Laptop "Backup books"'
 
 alias k='kubectl'
 complete -F __start_kubectl k
+
+alias vim='nvim'
