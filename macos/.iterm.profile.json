@@ -254,6 +254,7 @@
     "Alpha Component" : 0.25,
     "Green Component" : 0.92047786712646484
   },
+  "ASCII Ligatures" : false,
   "Send Code When Idle" : false,
   "Ansi 6 Color" : {
     "Red Component" : 0,
@@ -562,7 +563,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.7607843279838562
   },
-  "Normal Font" : "FiraCodeNFM-Reg 12",
+  "Normal Font" : "FiraCodeNFM-Reg 14",
   "Unlimited Scrollback" : false,
   "Ansi 12 Color (Light)" : {
     "Red Component" : 0.39215686274509803,
