@@ -45,5 +45,7 @@ fi
 
 "$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 echo Cleaning default config file
 ./common/clean.sh
