@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
     fi
 fi
 
-export PATH="$PATH:$HOME/.config/composer/vendor/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.go/bin:/home/henry/.cache/rebar3/bin"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.go/bin:/home/henry/.cache/rebar3/bin:/opt/nvim-linux64/bin"
 
 export PS1="\[\e[0;37m\][\[\e[0;36m\]\w\[\e[0;37m\]] \[\e[0;31m\]$ \[\e[0m\]"
 

@@ -2,9 +2,13 @@
 
 sudo apt update
 
-sudo apt install -y neovim vim wget gcc ripgrep luarocks zsh stow git
+sudo apt install -y vim wget gcc ripgrep luarocks zsh stow git
 
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
 if [[ ! -d "$HOME/go" ]]; then
 current=$(pwd)
