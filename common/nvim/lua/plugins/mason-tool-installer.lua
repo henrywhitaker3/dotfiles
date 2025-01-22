@@ -1,6 +1,6 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	config = {
+	opts = {
 		ensure_installed = {
 			"efm",
 			"lua-language-server",
