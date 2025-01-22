@@ -11,6 +11,10 @@ return {
 			"volar",
 			"eslint_d",
 			"ts_ls",
+			"helm_ls",
+			"yaml-language-server",
+			"yamllint",
+			"prettier",
 		},
 	},
 }

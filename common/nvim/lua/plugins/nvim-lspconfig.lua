@@ -37,6 +37,9 @@ local config = function()
 	local typescript = require("plugins.lsp.typescript")
 	typescript.setup(on_attach, capabilities)
 
+	local yaml = require("plugins.lsp.yaml")
+	yaml.setup(on_attach, capabilities)
+
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
@@ -45,6 +48,8 @@ local config = function()
 			"typescript",
 			"javascript",
 			"vue",
+			"helm",
+			"yaml",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -61,6 +66,8 @@ local config = function()
 				terraform = terraform.lang,
 				typescript = typescript.lang,
 				vue = vue.lang,
+				yaml = yaml.lang,
+				helm = yaml.lang,
 			},
 		},
 	})
