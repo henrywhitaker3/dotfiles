@@ -41,7 +41,7 @@ if [[ ! -d "$HOME/.go" ]]; then
 	cd /tmp && tar -xzvf go.tar.gz && mv go "$HOME/" && cd "$current" || exit 1
 fi
 
-"$HOME/go/bin/.go" install golang.org/x/tools/gopls@latest
+"$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
 
 echo Cleaning default config file
 ./common/clean.sh
