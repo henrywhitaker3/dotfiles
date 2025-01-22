@@ -24,6 +24,7 @@ return {
                 "gitignore",
                 "dockerfile",
                 "markdown",
+                "markdown_inline",
                 "css",
             },
             sync_install = false,

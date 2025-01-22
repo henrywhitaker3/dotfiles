@@ -9,9 +9,15 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+    local on_attach = function(client, bufnr)
+        local opts = { noremap = true, silent = true, buffer = bufnr }
+
+        vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
+    end
+
 	lspconfig.lua_ls.setup({
 		-- capabilitites = capabilities,
-		-- on_attach = on_attach,
+		on_attach = on_attach,
 		settings = {
 			Lua = {
 				diagnostics = {
