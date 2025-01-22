@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go"
+export PATH="$PATH:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/go/bin"
 bindkey -e
 bindkey '\e\e[C' forward-word
 bindkey '\e\e[D' backward-word 
