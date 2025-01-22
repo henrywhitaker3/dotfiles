@@ -2,7 +2,7 @@
 
 sudo apt update
 
-sudo apt install -y vim wget gcc ripgrep luarocks zsh stow git fzf terraform
+sudo apt install -y vim wget gcc ripgrep luarocks zsh stow git fzf terraform fonts-firacode
 
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
 
