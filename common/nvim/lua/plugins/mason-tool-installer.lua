@@ -17,6 +17,9 @@ return {
 			"prettier",
 			"sqlls",
 			"sqlfluff",
+			"bash-language-server",
+			"shellcheck",
+			"shfmt",
 		},
 	},
 }

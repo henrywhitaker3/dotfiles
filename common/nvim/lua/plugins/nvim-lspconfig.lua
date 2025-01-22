@@ -43,6 +43,9 @@ local config = function()
 	local sql = require("plugins.lsp.sql")
 	sql.setup(on_attach, capabilities)
 
+	local bash = require("plugins.lsp.bash")
+	bash.setup(on_attach, capabilities)
+
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
@@ -55,6 +58,8 @@ local config = function()
 			"yaml",
 			"sql",
 			"mysql",
+			"sh",
+			"bash",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -75,6 +80,8 @@ local config = function()
 				helm = yaml.lang,
 				sql = sql.lang,
 				mysql = sql.lang,
+				sh = bash.lang,
+				bash = bash.lang,
 			},
 		},
 	})
