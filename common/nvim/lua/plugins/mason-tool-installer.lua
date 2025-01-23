@@ -20,6 +20,7 @@ return {
 			"bash-language-server",
 			"shellcheck",
 			"shfmt",
+			"jsonlint",
 		},
 	},
 }

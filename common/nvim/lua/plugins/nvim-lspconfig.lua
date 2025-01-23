@@ -46,6 +46,9 @@ local config = function()
 	local bash = require("plugins.lsp.bash")
 	bash.setup(on_attach, capabilities)
 
+	local json = require("plugins.lsp.json")
+	json.setup(on_attach, capabilities)
+
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
@@ -60,6 +63,7 @@ local config = function()
 			"mysql",
 			"sh",
 			"bash",
+			"json",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -82,6 +86,7 @@ local config = function()
 				mysql = sql.lang,
 				sh = bash.lang,
 				bash = bash.lang,
+				json = json.lang,
 			},
 		},
 	})

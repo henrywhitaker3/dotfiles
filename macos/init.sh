@@ -69,6 +69,7 @@ install_brew_things() {
 	brew install gotests
 	brew install npm
 	brew install typescript
+	brew install vscode-langservers-extracted
 }
 
 install_iterm_theme() {
