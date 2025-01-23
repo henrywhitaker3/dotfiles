@@ -7,10 +7,5 @@ return {
 		vim.keymap.set("n", "<leader>dso", "<cmd>DapStepOver<CR>", opts)
 		vim.keymap.set("n", "<leader>dsi", "<cmd>DapStepInto<CR>", opts)
 		vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>", opts)
-		vim.keymap.set("n", "<leader>dui", function()
-			local widgets = require("dap.ui.widgets")
-			local sidebar = widgets.sidebar(widgets.scopes)
-			sidebar.open()
-		end, opts)
 	end,
 }
