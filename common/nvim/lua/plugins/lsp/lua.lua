@@ -2,6 +2,7 @@ local setup = function(on_attach, capabilities)
 	require("lspconfig").lua_ls.setup({
 		on_attach = on_attach,
 		collectgarbage = capabilities,
+		filetypes = { "lua" },
 		settings = {
 			Lua = {
 				diagnostics = {
