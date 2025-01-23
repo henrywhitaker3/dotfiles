@@ -120,5 +120,9 @@ return {
 		"williamboman/mason.nvim",
 		"creativenull/efmls-configs-nvim",
 		"hrsh7th/cmp-nvim-lsp",
+		{
+			"towolf/vim-helm",
+			ft = "helm",
+		},
 	},
 }
