@@ -5,5 +5,4 @@ if [[ $# -ne 1 ]]; then
 	exit 1
 fi
 
-git reset --soft HEAD~$1
-
+git reset --soft HEAD~"$1"

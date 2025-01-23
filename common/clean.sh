@@ -1,9 +1,9 @@
 #!/bin/bash
 
 delete_if_exists() {
-    if [[ -f $1 ]]; then
-        rm -r $1
-    fi
+	if [[ -f $1 ]]; then
+		rm -r "$1"
+	fi
 }
 
 delete_if_exists "$HOME/.bashrc"
