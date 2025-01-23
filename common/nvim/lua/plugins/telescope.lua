@@ -10,6 +10,7 @@ return {
 				find_files = {
 					theme = "dropdown",
 					previewer = false,
+					find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
 				},
 				live_grep = {
 					theme = "dropdown",
