@@ -19,6 +19,7 @@ local setup = function(on_attach, capabilites)
 end
 
 local lang = {
+	require("efmls-configs.formatters.golines"),
 	require("efmls-configs.formatters.gofmt"),
 	require("efmls-configs.formatters.goimports"),
 }

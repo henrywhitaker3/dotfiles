@@ -52,9 +52,11 @@ if [[ ! -f "$HOME/.zsh/zsh-syntax-highlighting" ]]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
 fi
 
+# Install neovim dependencies
 "$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
 "$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
-"$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
+"$HOME/.go/bin/go" install github.com/segmentio/golines@latest
+npm i -g vscode-langservers-extracted
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

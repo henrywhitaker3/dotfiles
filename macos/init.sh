@@ -67,6 +67,7 @@ install_brew_things() {
 	brew install --cask font-fira-code-nerd-font
 	brew install delve
 	brew install gotests
+	brew install golines
 	brew install npm
 	brew install typescript
 	brew install vscode-langservers-extracted
