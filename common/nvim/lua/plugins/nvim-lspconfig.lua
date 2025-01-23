@@ -99,6 +99,7 @@ local config = function()
 			if vim.lsp.get_clients then
 				efm = vim.lsp.get_clients({ name = "efm" })
 			else
+				---@diagnostic disable-next-line: deprecated
 				efm = vim.lsp.get_active_clients({ name = "efm" })
 			end
 
