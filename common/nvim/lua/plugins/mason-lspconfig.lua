@@ -7,7 +7,7 @@ return {
 			"yamlls",
 			"helm_ls",
 			"jsonls",
-			"gols",
+			"gopls",
 			"volar",
 			"sqlls",
 			"ts_ls",
