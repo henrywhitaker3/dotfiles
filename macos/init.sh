@@ -30,6 +30,7 @@ install_brew_things() {
 	brew install calibre
 	brew install vim
 	brew install go
+	brew install 1password
 	brew tap hashicorp/tap
 	brew install hashicorp/tap/terraform
 	brew install watch
