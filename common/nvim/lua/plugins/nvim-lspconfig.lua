@@ -51,6 +51,9 @@ local config = function()
 	local json = require("plugins.lsp.json")
 	json.setup(on_attach, capabilities)
 
+	local docker = require("plugins.lsp.docker")
+	docker.setup(on_attach, capabilities)
+
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
@@ -66,6 +69,7 @@ local config = function()
 			"sh",
 			"bash",
 			"json",
+			"docker",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -89,6 +93,7 @@ local config = function()
 				sh = bash.lang,
 				bash = bash.lang,
 				json = json.lang,
+				docker = docker.lang,
 			},
 		},
 	})

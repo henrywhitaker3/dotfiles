@@ -21,6 +21,7 @@ return {
 			"shellcheck",
 			"shfmt",
 			"jsonlint",
+			"dockerfile-language-server",
 		},
 	},
 }
