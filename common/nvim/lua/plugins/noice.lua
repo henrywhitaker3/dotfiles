@@ -12,6 +12,15 @@ return {
 					skip = true,
 				},
 			},
+			{
+				filter = {
+					event = "Notify",
+					find = "no matching language servers",
+				},
+				opts = {
+					skip = true,
+				},
+			},
 		},
 	},
 	dependencies = {
