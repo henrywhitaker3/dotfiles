@@ -10,8 +10,10 @@ local setup = function(on_attach, capabilites)
 		settings = {
 			gopls = {
 				completeUnimported = true,
+				usePlaceholders = true,
 				analyses = {
-					unusedParams = true,
+					unusedparams = true,
+					nilness = true,
 				},
 			},
 		},
