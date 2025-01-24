@@ -5,7 +5,7 @@ return {
 			"efm",
 			"lua_ls",
 			"yamlls",
-			"helmls",
+			"helm_ls",
 			"jsonls",
 			"gols",
 			"volar",
