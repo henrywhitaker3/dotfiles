@@ -22,6 +22,7 @@ install_brew_things() {
 	brew install git
 	brew install alt-tab
 	brew install helm
+	brew install age
 	brew install k9s
 	brew install kubectl
 	brew install iterm2
