@@ -56,6 +56,7 @@ install_brew_things() {
 	brew install discord
 	brew install ansible
 	brew install nmap
+	brew install --cask wireshark
 	brew install zsh-syntax-highlighting
 	brew install wget
 	brew install pure
