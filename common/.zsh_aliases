@@ -2,8 +2,12 @@ alias k=kubectl
 source <(kubectl completion zsh)
 compdef k='kubectl'
 
-alias grep=ggrep
-alias sed=gsed
+if [[ -f /opt/homebrew/bin/ggrep ]]; then
+    alias grep=ggrep
+fi
+if [[ -f /opt/homebrew/bin/gsed ]]; then
+    alias sed=gsed
+fi
 
 alias dc='docker compose'
 
