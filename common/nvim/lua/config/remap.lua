@@ -5,8 +5,17 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>", opts)
 vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
+-- Save
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>i", opts)
 vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
+
+-- Duplicate lines
+vim.keymap.set("n", "<leader>dj", "yyjP", opts)
+vim.keymap.set("n", "<leader>dk", "yykp", opts)
+
+-- Move lines
+vim.keymap.set("n", "<leader>mj", "ddjP", opts)
+vim.keymap.set("n", "<leader>mk", "ddkkp", opts)
 
 -- Navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
