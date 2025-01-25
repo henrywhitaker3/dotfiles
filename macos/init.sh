@@ -89,23 +89,16 @@ install_brew_things() {
 	brew_install vscode-langservers-extracted
 }
 
-install_iterm_theme() {
-	if [[ ! -f "$HOME/.0x96f.itermcolors" ]]; then
-		echo Installing 0x96f.itermcolors
-		wget https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/0x96f.itermcolors -O $HOME/.0x96f.itermcolors
-	fi
-}
-
 install_audible() {
 	mkdir -p ~/.local/bin
 
 	if [[ ! -f "$HOME/.local/bin/audible" ]]; then
 		echo Installing audible-cli
-		pipx install audible-cli
+		/opt/homebrew/bin/pipx install audible-cli
 	fi
 	if [[ ! -f "$HOME/.local/bin/aaxtomp3" ]]; then
 		echo Installing aaxtomp3
-		wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
+		/opt/homebrew/bin/wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
 		chmod +x "$HOME/.local/bin/aaxtomp3"
 	fi
 }
@@ -113,7 +106,6 @@ install_audible() {
 install_homebrew
 install_ohmyzsh
 install_brew_things
-install_iterm_theme
 install_audible
 
 git config --global user.name "Henry Whitaker"
