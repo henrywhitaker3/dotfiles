@@ -106,6 +106,9 @@ install_audible
 git config --global user.name "Henry Whitaker"
 git config --global user.email "henrywhitaker3@outlook.com"
 git config --global core.excludesFile "$HOME/.gitignore"
+git config --global init.defaultBranch main
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
 
 echo Cleaning up defaults
 common/clean.sh
