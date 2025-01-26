@@ -54,8 +54,10 @@ opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 opt.autochdir = false
+-- This treats words with a dash in as one word instead of splitting them
 opt.iskeyword:append("-")
 opt.mouse:append("a")
-opt.clipboard:append("unnamedplus")
+-- This line sets the host clipboard to the default register
+-- opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "UTF-8"
