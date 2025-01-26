@@ -2,7 +2,6 @@ local config = function()
 	local lspconfig = require("lspconfig")
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local capabilities = cmp_nvim_lsp.default_capabilities()
-	capabilities.workspace = { didChangeWatchedFile = { dynamicRegistration = true } }
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
