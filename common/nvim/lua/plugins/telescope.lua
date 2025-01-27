@@ -4,8 +4,16 @@ return {
 	-- lazy = true,
 	config = function()
 		local telescope = require("telescope")
+		local actions = require("telescope.actions")
 
 		telescope.setup({
+			defaults = {
+				mappings = {
+					i = {
+						["<C-d>"] = actions.delete_buffer,
+					},
+				},
+			},
 			pickers = {
 				find_files = {
 					theme = "dropdown",
