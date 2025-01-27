@@ -39,16 +39,16 @@ if [[ ! -d "$HOME/.go" ]]; then
 	cd /tmp && tar -xzvf go.tar.gz && mv go "$HOME/.go" && cd "$current" || exit 1
 fi
 
-if [[ ! -f "$HOME/.zsh/pure" ]]; then
+if [[ ! -d "$HOME/.zsh/pure" ]]; then
 	mkdir -p "$HOME/.zsh"
 	git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 fi
 
-if [[ ! -f "$HOME/.zsh/zsh-autosuggestions" ]]; then
+if [[ ! -d "$HOME/.zsh/zsh-autosuggestions" ]]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
 fi
 
-if [[ ! -f "$HOME/.zsh/zsh-syntax-highlighting" ]]; then
+if [[ ! -d "$HOME/.zsh/zsh-syntax-highlighting" ]]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
 fi
 
@@ -56,7 +56,7 @@ fi
 "$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
 "$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
 "$HOME/.go/bin/go" install github.com/segmentio/golines@latest
-npm i -g vscode-langservers-extracted
+sudo npm i -g vscode-langservers-extracted
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
