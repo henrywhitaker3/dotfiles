@@ -1,7 +1,6 @@
 local config = function()
 	local lspconfig = require("lspconfig")
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
-	local capabilities = cmp_nvim_lsp.default_capabilities()
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
@@ -126,7 +125,6 @@ return {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
 		"creativenull/efmls-configs-nvim",
-		"hrsh7th/cmp-nvim-lsp",
 		{
 			"towolf/vim-helm",
 			ft = "helm",
