@@ -1,8 +1,10 @@
+local filetypes = { "typescript", "javascript", "vue" }
+
 local setup = function(on_attach, capabilities)
 	require("lspconfig").volar.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		filetypes = { "typescript", "javascript", "vue" },
+		filetypes = filetypes,
 		settings = {
 			vue = {
 				hybridMode = false,
@@ -22,7 +24,11 @@ local lang = {
 	require("efmls-configs.formatters.eslint_d"),
 }
 
+local efm = { "vue" }
+
 return {
 	setup = setup,
 	lang = lang,
+	efm = efm,
+	filetypes = filetypes,
 }

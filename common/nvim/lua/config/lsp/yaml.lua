@@ -1,3 +1,5 @@
+local filetypes = { "helm", "yaml" }
+
 local setup = function(on_attach, capabilities)
 	require("lspconfig").helm_ls.setup({
 		on_attach = on_attach,
@@ -32,7 +34,11 @@ local lang = {
 	require("efmls-configs.formatters.prettier"),
 }
 
+local efm = { "yaml", "helm" }
+
 return {
 	setup = setup,
 	lang = lang,
+	efm = efm,
+	filetypes = filetypes,
 }

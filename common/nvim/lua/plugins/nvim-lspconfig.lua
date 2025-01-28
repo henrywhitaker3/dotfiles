@@ -22,53 +22,28 @@ local config = function()
 		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	end
 
-	local lua = require("plugins.lsp.lua")
-	lua.setup(on_attach, capabilities)
-
-	local go = require("plugins.lsp.go")
-	go.setup(on_attach, capabilities)
-
-	local terraform = require("plugins.lsp.terraform")
-	terraform.setup(on_attach, capabilities)
-
-	local vue = require("plugins.lsp.volar")
-	vue.setup(on_attach, capabilities)
-
-	local typescript = require("plugins.lsp.typescript")
-	typescript.setup(on_attach, capabilities)
-
-	local yaml = require("plugins.lsp.yaml")
-	yaml.setup(on_attach, capabilities)
-
-	local sql = require("plugins.lsp.sql")
-	sql.setup(on_attach, capabilities)
-
-	local bash = require("plugins.lsp.bash")
-	bash.setup(on_attach, capabilities)
-
-	local json = require("plugins.lsp.json")
-	json.setup(on_attach, capabilities)
-
-	local docker = require("plugins.lsp.docker")
-	docker.setup(on_attach, capabilities)
+	local filetypes = {}
+	local langs = {}
+	local configs = vim.split(vim.fn.glob("~/.config/nvim/lua/config/lsp/*.lua"), "\n")
+	for _, conf in pairs(configs) do
+		local setup = require("config.lsp." .. vim.fs.basename(conf):gsub("%.lua", ""))
+		setup.setup(on_attach, capabilities)
+		if setup["efm"] ~= nil then
+			for _, efm in pairs(setup.efm) do
+				langs[efm] = setup.lang
+			end
+		end
+		if setup["filetypes"] then
+			for _, ft in pairs(setup.filetypes) do
+				if filetypes[ft] == nil then
+					table.insert(filetypes, ft)
+				end
+			end
+		end
+	end
 
 	lspconfig.efm.setup({
-		filetypes = {
-			"lua",
-			"go",
-			"terraform",
-			"typescript",
-			"javascript",
-			"vue",
-			"helm",
-			"yaml",
-			"sql",
-			"mysql",
-			"sh",
-			"bash",
-			"json",
-			"docker",
-		},
+		filetypes = filetypes,
 		init_options = {
 			documentFormatting = true,
 			documentRangeFormatting = true,
@@ -78,21 +53,7 @@ local config = function()
 			completion = true,
 		},
 		settings = {
-			languages = {
-				lua = lua.lang,
-				go = go.lang,
-				terraform = terraform.lang,
-				typescript = typescript.lang,
-				vue = vue.lang,
-				yaml = yaml.lang,
-				helm = yaml.lang,
-				sql = sql.lang,
-				mysql = sql.lang,
-				sh = bash.lang,
-				bash = bash.lang,
-				json = json.lang,
-				docker = docker.lang,
-			},
+			languages = langs,
 		},
 	})
 

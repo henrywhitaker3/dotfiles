@@ -1,3 +1,5 @@
+local filetypes = { "go", "gomod", "gowork", "gotempl" }
+
 local setup = function(on_attach, capabilites)
 	local util = require("lspconfig/util")
 
@@ -5,7 +7,7 @@ local setup = function(on_attach, capabilites)
 		on_attach = on_attach,
 		capabilites = capabilites,
 		cmd = { "gopls" },
-		filetypes = { "go", "gomod", "gowork", "gotmpl" },
+		filetypes = filetypes,
 		root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 		settings = {
 			gopls = {
@@ -50,7 +52,11 @@ local lang = {
 	require("efmls-configs.formatters.goimports"),
 }
 
+local efm = { "go" }
+
 return {
 	setup = setup,
 	lang = lang,
+	efm = efm,
+	filetypes = filetypes,
 }

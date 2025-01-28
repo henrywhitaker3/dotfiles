@@ -1,8 +1,10 @@
+local filetypes = { "lua" }
+
 local setup = function(on_attach, capabilities)
 	require("lspconfig").lua_ls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		filetypes = { "lua" },
+		filetypes = filetypes,
 		settings = {
 			Lua = {
 				diagnostics = {
@@ -27,7 +29,11 @@ local lang = {
 	require("efmls-configs.formatters.stylua"),
 }
 
+local efm = { "lua" }
+
 return {
 	setup = setup,
 	lang = lang,
+	efm = efm,
+	filetypes = filetypes,
 }
