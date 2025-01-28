@@ -22,5 +22,14 @@ return {
 		sources = {
 			cmdline = {},
 		},
+		completion = {
+			ghost_text = { enabled = true },
+		},
+		enabled = function()
+			return vim.bo.filetype ~= "gitcommit" and vim.bo.buftype ~= "prompt" and vim.b.completion ~= false
+		end,
+	},
+	opts_extend = {
+		"completion.default",
 	},
 }
