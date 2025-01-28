@@ -1,3 +1,7 @@
+local disabled_filetypes = {
+	"gitcommit",
+}
+
 return {
 	"Saghen/blink.cmp",
 	version = "*",
@@ -26,7 +30,9 @@ return {
 			ghost_text = { enabled = true },
 		},
 		enabled = function()
-			return vim.bo.filetype ~= "gitcommit" and vim.bo.buftype ~= "prompt" and vim.b.completion ~= false
+			return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
+				and vim.bo.buftype ~= "prompt"
+				and vim.b.completion ~= false
 		end,
 	},
 	opts_extend = {
