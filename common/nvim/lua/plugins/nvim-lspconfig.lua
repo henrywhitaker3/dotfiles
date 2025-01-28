@@ -83,8 +83,75 @@ return {
 	config = config,
 	lazy = false,
 	dependencies = {
-		"windwp/nvim-autopairs",
-		"williamboman/mason.nvim",
+		{
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			opts = {
+				fast_wrap = {},
+				disable_filetype = { "TelescopePrompt", "vim" },
+			},
+		},
+		{
+			"williamboman/mason.nvim",
+			cmd = "Mason",
+			event = "BufReadPre",
+			opts = {
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
+			},
+		},
+		{
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			opts = {
+				ensure_installed = {
+					"efm",
+					"lua-language-server",
+					"stylua",
+					"luacheck",
+					"gopls",
+					"terraform-ls",
+					"volar",
+					"eslint_d",
+					"ts_ls",
+					"helm_ls",
+					"yaml-language-server",
+					"yamllint",
+					"prettier",
+					"sqlls",
+					"sqlfluff",
+					"bash-language-server",
+					"shellcheck",
+					"shfmt",
+					"jsonlint",
+					"dockerfile-language-server",
+				},
+			},
+		},
+		{
+			"williamboman/mason-lspconfig.nvim",
+			opts = {
+				ensure_installed = {
+					"efm",
+					"lua_ls",
+					"yamlls",
+					"helm_ls",
+					"jsonls",
+					"gopls",
+					"volar",
+					"sqlls",
+					"ts_ls",
+					"bashls",
+					"terraformls",
+				},
+				automatic_installation = true,
+			},
+			event = "BufReadPre",
+		},
 		"creativenull/efmls-configs-nvim",
 		{
 			"towolf/vim-helm",
