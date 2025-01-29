@@ -120,6 +120,9 @@ else
 fi
 
 export OLLAMA_HOST="10.0.0.54"
+if [[ -f "$HOME/.ollama_localhost" ]]; then
+    export OLLAMA_HOST="127.0.0.1"
+fi
 
 if [[ -f /opt/homebrew/bin/brew ]]; then
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
