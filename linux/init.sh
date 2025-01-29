@@ -57,6 +57,8 @@ fi
 "$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
 "$HOME/.go/bin/go" install github.com/segmentio/golines@latest
 sudo npm i -g vscode-langservers-extracted
+sudo npm i -g @vue/typescript-plugin
+sudo npm i -g @vue/language-server
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

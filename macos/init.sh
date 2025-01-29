@@ -103,6 +103,11 @@ install_audible() {
 	fi
 }
 
+install_npm_stuff() {
+	sudo "/opt/homebrew/bin/npm" i -g @vue/typescript-plugin
+	sudo "/opt/homebrew/bin/npm" i -g @vue/language-server
+}
+
 install_homebrew
 install_ohmyzsh
 install_brew_things
