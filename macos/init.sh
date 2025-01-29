@@ -87,6 +87,7 @@ install_brew_things() {
 	brew_install npm
 	brew_install typescript
 	brew_install vscode-langservers-extracted
+	brew_install helmfile
 }
 
 install_audible() {
@@ -112,6 +113,9 @@ install_homebrew
 install_ohmyzsh
 install_brew_things
 install_audible
+install_npm_stuff
+
+/opt/homebrew/bin/helm plugin install https://github.com/databus23/helm-diff
 
 git config --global user.name "Henry Whitaker"
 git config --global user.email "henrywhitaker3@outlook.com"
