@@ -88,6 +88,7 @@ install_brew_things() {
 	brew_install typescript
 	brew_install vscode-langservers-extracted
 	brew_install helmfile
+	brew_install dbeaver-community
 }
 
 install_audible() {
