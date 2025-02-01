@@ -59,7 +59,6 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			opts = {
 				ensure_installed = {
-					"efm",
 					"lua-language-server",
 					"stylua",
 					"luacheck",
@@ -87,7 +86,6 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			opts = {
 				ensure_installed = {
-					"efm",
 					"lua_ls",
 					"yamlls",
 					"helm_ls",
