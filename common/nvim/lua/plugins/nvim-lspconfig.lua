@@ -79,6 +79,7 @@ return {
 					"jsonlint",
 					"dockerfile-language-server",
 					"goimports",
+					"golangci-lint",
 				},
 			},
 		},

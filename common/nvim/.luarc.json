@@ -1,9 +1,1 @@
-{
-  "diagnostics.globals": [
-    "vim"
-  ],
-  "diagnostics.disable": [
-    "different-requires",
-    "missing-fields"
-  ]
-}
+../../.luarc.json
