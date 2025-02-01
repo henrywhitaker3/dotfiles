@@ -94,7 +94,7 @@ return {
 		{
 			"williamboman/mason.nvim",
 			cmd = "Mason",
-			event = "BufReadPre",
+			event = { "BufReadPre", "BufNewFile" },
 			opts = {
 				ui = {
 					icons = {
@@ -121,7 +121,7 @@ return {
 					"helm_ls",
 					"yaml-language-server",
 					"yamllint",
-					"prettier",
+					"prettierd",
 					"sqlls",
 					"sqlfluff",
 					"bash-language-server",
