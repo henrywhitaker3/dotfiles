@@ -1,5 +1,4 @@
 local config = function()
-	local lspconfig = require("lspconfig")
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
@@ -22,60 +21,11 @@ local config = function()
 		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	end
 
-	local filetypes = {}
-	local langs = {}
 	local configs = vim.split(vim.fn.glob("~/.config/nvim/lua/config/lsp/*.lua"), "\n")
 	for _, conf in pairs(configs) do
 		local setup = require("config.lsp." .. vim.fs.basename(conf):gsub("%.lua", ""))
 		setup.setup(on_attach, capabilities)
-		if setup["efm"] ~= nil then
-			for _, efm in pairs(setup.efm) do
-				langs[efm] = setup.lang
-			end
-		end
-		if setup["filetypes"] then
-			for _, ft in pairs(setup.filetypes) do
-				if filetypes[ft] == nil then
-					table.insert(filetypes, ft)
-				end
-			end
-		end
 	end
-
-	lspconfig.efm.setup({
-		filetypes = filetypes,
-		init_options = {
-			documentFormatting = true,
-			documentRangeFormatting = true,
-			hover = true,
-			documentSymbol = true,
-			codeAction = true,
-			completion = true,
-		},
-		settings = {
-			languages = langs,
-		},
-	})
-
-	local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = lsp_fmt_group,
-		callback = function()
-			local efm
-			if vim.lsp.get_clients then
-				efm = vim.lsp.get_clients({ name = "efm" })
-			else
-				---@diagnostic disable-next-line: deprecated
-				efm = vim.lsp.get_active_clients({ name = "efm" })
-			end
-
-			if vim.tbl_isempty(efm) then
-				return
-			end
-
-			vim.lsp.buf.format({ name = "efm" })
-		end,
-	})
 end
 
 return {
@@ -129,6 +79,7 @@ return {
 					"shfmt",
 					"jsonlint",
 					"dockerfile-language-server",
+					"goimports",
 				},
 			},
 		},
@@ -151,11 +102,6 @@ return {
 				automatic_installation = true,
 			},
 			event = "BufReadPre",
-		},
-		"creativenull/efmls-configs-nvim",
-		{
-			"towolf/vim-helm",
-			ft = "helm",
 		},
 	},
 }

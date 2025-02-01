@@ -23,16 +23,7 @@ local setup = function(on_attach, capabilities)
 	})
 end
 
-local lang = {
-	require("efmls-configs.linters.eslint_d"),
-	require("efmls-configs.formatters.eslint_d"),
-}
-
-local efm = { "typescript", "javascript" }
-
 return {
 	setup = setup,
-	lang = lang,
-	efm = efm,
 	filetypes = filetypes,
 }

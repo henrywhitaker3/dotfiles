@@ -27,18 +27,7 @@ local yamllint = function()
 	return yamllint
 end
 
-local lang = {
-	yamllint(),
-	require("efmls-configs.linters.actionlint"),
-	require("efmls-configs.linters.ansible_lint"),
-	require("efmls-configs.formatters.prettier_d"),
-}
-
-local efm = { "yaml", "helm" }
-
 return {
 	setup = setup,
-	lang = lang,
-	efm = efm,
 	filetypes = filetypes,
 }

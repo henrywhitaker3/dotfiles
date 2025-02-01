@@ -8,16 +8,7 @@ local setup = function(on_attach, capabilities)
 	})
 end
 
-local efm = { "bash", "sh" }
-
-local lang = {
-	require("efmls-configs.linters.shellcheck"),
-	require("efmls-configs.formatters.shfmt"),
-}
-
 return {
 	setup = setup,
-	lang = lang,
 	efm = efm,
-	filetypes = filetypes,
 }

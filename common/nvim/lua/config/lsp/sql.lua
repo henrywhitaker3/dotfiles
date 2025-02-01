@@ -8,16 +8,7 @@ local setup = function(on_attach, capabilities)
 	})
 end
 
-local lang = {
-	require("efmls-configs.linters.sqlfluff"),
-	require("efmls-configs.formatters.sqlfluff"),
-}
-
-local efm = { "sql", "mysql" }
-
 return {
 	setup = setup,
-	lang = lang,
-	efm = efm,
 	filetypes = filetypes,
 }

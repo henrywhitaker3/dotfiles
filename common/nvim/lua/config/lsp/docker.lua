@@ -8,15 +8,7 @@ local setup = function(on_attach, capabilities)
 	})
 end
 
-local lang = {
-	require("efmls-configs.linters.hadolint"),
-}
-
-local efm = { "docker" }
-
 return {
 	setup = setup,
-	lang = lang,
-	efm = efm,
 	filetypes = filetypes,
 }
