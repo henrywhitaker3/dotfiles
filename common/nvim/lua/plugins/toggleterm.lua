@@ -1,6 +1,12 @@
 return {
 	"akinsho/toggleterm.nvim",
-	opts = {
-		open_mapping = "<C-`>",
-	},
+	config = function()
+		local key = "<C-`>"
+		if os.getenv("WSL_DISTRO_NAME") ~= nil then
+			key = "<leader>tt"
+		end
+		require("toggleterm").setup({
+			open_mapping = key,
+		})
+	end,
 }
