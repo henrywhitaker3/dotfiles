@@ -25,6 +25,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
 vim.keymap.set("n", "<leader>sh", ":split<CR>", opts)
 vim.keymap.set("n", "<leader>cd", ":chdir<Space>", opts)
+vim.keymap.set("n", "<leader>qa", ":qa<CR>", opts)
 
 -- Commenting
 vim.api.nvim_set_keymap("i", "<C-/>", "<esc>gcc<S-a>", { noremap = false })
