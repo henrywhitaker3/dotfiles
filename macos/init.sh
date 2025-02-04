@@ -111,11 +111,16 @@ install_npm_stuff() {
     sudo "/opt/homebrew/bin/npm" i -g @vue/language-server
 }
 
+install_rust() {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+}
+
 install_homebrew
 install_ohmyzsh
 install_brew_things
 install_audible
 install_npm_stuff
+install_rust
 
 /opt/homebrew/bin/helm plugin install https://github.com/databus23/helm-diff
 
