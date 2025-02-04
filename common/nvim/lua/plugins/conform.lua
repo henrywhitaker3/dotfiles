@@ -18,6 +18,7 @@ return {
 				javascript = { "eslint_d" },
 				terraform = { "terraform_fmt" },
 				bash = { "shfmt" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				async = false,
