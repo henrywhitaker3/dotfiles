@@ -153,3 +153,7 @@ fi
 if [[ -d "$HOME/.orbstack" ]]; then
     export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
 fi
+
+if [[ -d "$HOME/.cargo" ]]; then
+    . "$HOME/.cargo/env"
+fi
