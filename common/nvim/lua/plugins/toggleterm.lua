@@ -7,6 +7,7 @@ return {
 		end
 		require("toggleterm").setup({
 			open_mapping = key,
+			size = 20,
 		})
 	end,
 }
