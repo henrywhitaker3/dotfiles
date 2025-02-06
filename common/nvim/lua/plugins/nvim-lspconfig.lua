@@ -80,6 +80,7 @@ return {
 					"dockerfile-language-server",
 					"goimports",
 					"golangci-lint",
+					"golines",
 					"marksman",
 					"markdownlint",
 					"rust-analyzer",
