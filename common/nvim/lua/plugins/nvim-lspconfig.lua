@@ -84,6 +84,8 @@ return {
 					"markdownlint",
 					"rust-analyzer",
 					"rustfmt",
+					"protols",
+					"protolint",
 				},
 			},
 		},

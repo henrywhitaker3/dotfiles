@@ -28,6 +28,7 @@ return {
 			yaml = { "yamllint" },
 			helm = { "yamllint" },
 			markdown = { "markdownlint" },
+			proto = { "protolint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

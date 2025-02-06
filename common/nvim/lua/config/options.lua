@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"js",
 		"vue",
 		"terraform",
+		"proto",
 	},
 	callback = function()
 		opt.tabstop = 2
