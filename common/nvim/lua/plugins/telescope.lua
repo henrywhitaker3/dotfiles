@@ -31,6 +31,9 @@ return {
 					theme = "dropdown",
 					previewer = false,
 				},
+				lsp_document_pickers = {
+					theme = "dropdown",
+				},
 			},
 		})
 
@@ -40,5 +43,6 @@ return {
 		vim.keymap.set("n", "<leader>pb", ":Telescope buffers<CR>", {})
 		vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", {})
 		vim.keymap.set("n", "<leader>gcm", ":Telescope git_commits<CR>", {})
+		vim.keymap.set("n", "<leader>po", ":Telescope lsp_document_symbols<CR>", {})
 	end,
 }
