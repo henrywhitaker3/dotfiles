@@ -90,6 +90,8 @@ install_brew_things() {
     brew_install helmfile
     brew_install_cask dbeaver-community
     brew_install screen
+    brew_install grpc
+    brew_install buf
 }
 
 install_audible() {
