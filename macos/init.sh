@@ -92,6 +92,7 @@ install_brew_things() {
     brew_install screen
     brew_install grpc
     brew_install buf
+    brew_install protoc-gen-go
 }
 
 install_audible() {
