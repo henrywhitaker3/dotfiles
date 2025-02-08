@@ -42,7 +42,7 @@ vim.keymap.set("v", "<C-]>", ">gv", opts)
 vim.keymap.set("n", "<C-]>", "v>gv<esc>", { noremap = false })
 
 -- Buffers
-vim.keymap.set("n", "<leader>bw", ":bw<CR>", opts)
+vim.keymap.set("n", "<leader>bw", ":bw<CR>:bnext<CR>", opts)
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
