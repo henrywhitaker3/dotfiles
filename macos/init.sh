@@ -45,6 +45,7 @@ install_brew_things() {
     brew_install vim
     brew_install go
     brew_install 1password
+    brew_install 1password-cli
     brew_tap hashicorp/tap
     brew_install hashicorp/tap/terraform
     brew_install watch

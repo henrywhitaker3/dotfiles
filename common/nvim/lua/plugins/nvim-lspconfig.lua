@@ -8,8 +8,12 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
-	local on_attach = function(_, bufnr)
+	local on_attach = function(client, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
+
+		if client.supports_method("textDocument/inlayHint") then
+			vim.lsp.inlay_hint.enable(true, { bufnr })
+		end
 
 		vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
@@ -39,6 +43,7 @@ return {
 			opts = {
 				fast_wrap = {},
 				disable_filetype = { "TelescopePrompt", "vim" },
+				inlay_hints = { enabled = true },
 			},
 		},
 		{
