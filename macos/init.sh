@@ -95,6 +95,7 @@ install_brew_things() {
     brew_install buf
     brew_install protoc-gen-go
     brew_install protoc-gen-go-grpc
+    brew_install lazygit
 }
 
 install_audible() {

@@ -53,4 +53,10 @@ vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>gp", ":! git pull<CR>", opts)
 vim.keymap.set("n", "<leader>gst", ":! git stash<CR>", opts)
 vim.keymap.set("n", "<leader>gsp", ":! git stash pop<CR>", opts)
-vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>", opts)
+vim.keymap.set("n", "<leader>gb", function()
+	local to = 1
+	if vim.g.gitblame_display_virtual_text == 1 then
+		to = 0
+	end
+	vim.g.gitblame_display_virtual_text = to
+end, opts)
