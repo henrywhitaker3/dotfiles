@@ -28,7 +28,6 @@ return {
 				},
 				opts = {
 					skip = true,
-					bongo = 1,
 				},
 			},
 		},
