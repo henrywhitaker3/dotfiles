@@ -28,6 +28,7 @@ return {
 				"terraform",
 				"hcl",
 				"vue",
+				"proto",
 			},
 			sync_install = false,
 			highlight = { enable = true },
