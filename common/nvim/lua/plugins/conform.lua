@@ -1,9 +1,6 @@
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"stevearc/conform.nvim",
-	},
 	config = function()
 		local conform = require("conform")
 		conform.setup({

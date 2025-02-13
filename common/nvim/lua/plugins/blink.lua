@@ -31,6 +31,10 @@ return {
 		},
 		completion = {
 			ghost_text = { enabled = true },
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 500,
+			},
 		},
 		enabled = function()
 			return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
