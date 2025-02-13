@@ -157,3 +157,8 @@ fi
 if [[ -d "$HOME/.cargo" ]]; then
     . "$HOME/.cargo/env"
 fi
+
+if [[ -x "$(command -v nvim)" ]]; then
+    export EDITOR="nvim"
+    export SUDO_EDITOR="nvim"
+fi
