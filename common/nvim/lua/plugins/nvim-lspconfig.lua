@@ -88,8 +88,6 @@ return {
 					"golines",
 					"marksman",
 					"markdownlint",
-					"rust-analyzer",
-					"rustfmt",
 					"protols",
 					"protolint",
 				},
