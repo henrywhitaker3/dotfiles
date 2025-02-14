@@ -16,6 +16,7 @@ return {
 				terraform = { "terraform_fmt" },
 				bash = { "shfmt" },
 				rust = { "rustfmt" },
+				html = { "prettierd" },
 			},
 			format_on_save = {
 				async = false,

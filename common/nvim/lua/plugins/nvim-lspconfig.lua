@@ -90,6 +90,7 @@ return {
 					"markdownlint",
 					"protols",
 					"protolint",
+					"htmlhint",
 				},
 			},
 		},
