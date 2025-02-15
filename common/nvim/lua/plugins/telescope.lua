@@ -44,6 +44,6 @@ return {
 		vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", {})
 		vim.keymap.set("n", "<leader>gcm", ":Telescope git_commits<CR>", {})
 		vim.keymap.set("n", "<leader>po", ":Telescope lsp_document_symbols<CR>", {})
-		vim.keymap.set("n", "<C-l>", ":Telescope marks<CR>", {})
+		vim.keymap.set("n", "<leader>pm", ":Telescope marks<CR>", {})
 	end,
 }
