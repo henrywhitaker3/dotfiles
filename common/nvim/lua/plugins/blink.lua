@@ -26,6 +26,9 @@ return {
 			["<C-n>"] = { "snippet_forward", "fallback" },
 			["<C-p>"] = { "snippet_backward", "fallback" },
 		},
+		cmdline = {
+			enabled = false,
+		},
 		completion = {
 			ghost_text = { enabled = true },
 			documentation = {
