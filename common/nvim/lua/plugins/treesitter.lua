@@ -29,6 +29,7 @@ return {
 				"hcl",
 				"vue",
 				"proto",
+				"helm",
 			},
 			sync_install = false,
 			highlight = { enable = true },
