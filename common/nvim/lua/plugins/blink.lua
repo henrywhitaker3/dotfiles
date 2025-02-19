@@ -21,7 +21,7 @@ return {
 			preset = "default",
 			["<C-k>"] = { "select_prev", "fallback" },
 			["<C-j>"] = { "select_next", "fallback" },
-			["<CR>"] = { "select_and_accept", "fallback" },
+			["<CR>"] = { "accept", "fallback" },
 			["<Tab>"] = { "select_and_accept", "fallback" },
 			["<C-n>"] = { "snippet_forward", "fallback" },
 			["<C-p>"] = { "snippet_backward", "fallback" },
@@ -42,6 +42,16 @@ return {
 			menu = {
 				border = "rounded",
 				winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+			},
+			list = {
+				selection = {
+					preselect = function(_)
+						if vim.bo.filetype == "vue" then
+							return false
+						end
+						return true
+					end,
+				},
 			},
 		},
 		enabled = function()
