@@ -23,7 +23,7 @@ return {
 			},
 			{
 				filter = {
-					event = "Warning",
+					event = "Notify",
 					find = "Client marksman quit with exit code 1 and signal 0. Check log for errors: /Users/henry/.local/state/nvim/lsp.log",
 				},
 				opts = {
