@@ -91,6 +91,7 @@ return {
 					"protols",
 					"protolint",
 					"htmlhint",
+					"tailwindcss-language-server",
 				},
 			},
 		},
