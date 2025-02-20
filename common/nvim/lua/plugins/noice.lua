@@ -14,7 +14,7 @@ return {
 			},
 			{
 				filter = {
-					event = "Notify",
+					event = "notify",
 					find = "no matching language servers",
 				},
 				opts = {
@@ -23,7 +23,7 @@ return {
 			},
 			{
 				filter = {
-					event = "Notify",
+					event = "notify",
 					find = "Client marksman quit with exit code 1 and signal 0. Check log for errors: /Users/henry/.local/state/nvim/lsp.log",
 				},
 				opts = {

@@ -46,7 +46,7 @@ return {
 			list = {
 				selection = {
 					preselect = function(_)
-						if vim.bo.filetype == "vue" then
+						if vim.bo.filetype == "vue" or vim.bo.filetype == "typescript" then
 							return false
 						end
 						return true
