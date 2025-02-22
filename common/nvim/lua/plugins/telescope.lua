@@ -1,3 +1,14 @@
+local exclusions = { ".git", "node_modules", "vendor" }
+
+local find_command = function()
+	local cmd = { "rg", "--files", "--hidden", "--no-ignore-vcs" }
+	for _, excl in pairs(exclusions) do
+		table.insert(cmd, "-g")
+		table.insert(cmd, "!" .. excl)
+	end
+	return cmd
+end
+
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
@@ -18,16 +29,7 @@ return {
 				find_files = {
 					theme = "dropdown",
 					previewer = false,
-					find_command = {
-						"rg",
-						"--files",
-						"--hidden",
-						"--no-ignore-vcs",
-						"-g",
-						"!.git",
-						"-g",
-						"!node_modules",
-					},
+					find_command = find_command(),
 				},
 				live_grep = {
 					theme = "dropdown",
