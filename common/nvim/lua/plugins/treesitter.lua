@@ -30,6 +30,7 @@ return {
 				"vue",
 				"proto",
 				"helm",
+				"gleam",
 			},
 			sync_install = false,
 			highlight = { enable = true },

@@ -17,6 +17,7 @@ return {
 				bash = { "shfmt" },
 				rust = { "rustfmt" },
 				html = { "prettierd", "rustywind" },
+				gleam = { "gleam" },
 			},
 			format_on_save = {
 				async = false,
