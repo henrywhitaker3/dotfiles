@@ -6,6 +6,9 @@ vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>", opts)
 vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc><Esc>", opts)
 
+vim.keymap.set("n", "sy", '"*y')
+vim.keymap.set("n", "sp", '"*p')
+
 -- Save
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>i", opts)
 vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
