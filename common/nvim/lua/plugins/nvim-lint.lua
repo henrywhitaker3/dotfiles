@@ -30,6 +30,8 @@ return {
 			markdown = { "markdownlint" },
 			proto = { "protolint" },
 			html = { "htmlhint" },
+			php = { "phpcs" },
+			terraform = { "tflint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
