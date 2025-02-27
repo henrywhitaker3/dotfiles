@@ -27,7 +27,13 @@ return {
 			["<C-p>"] = { "snippet_backward", "fallback" },
 		},
 		cmdline = {
-			enabled = false,
+			keymap = {
+				preset = "default",
+				["<Tab>"] = { "show", "accept" },
+				["<C-j>"] = { "select_next" },
+				["<C-k>"] = { "select_prev" },
+			},
+			completion = { menu = { auto_show = true } },
 		},
 		completion = {
 			ghost_text = { enabled = true },
