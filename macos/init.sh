@@ -81,7 +81,7 @@ install_brew_things() {
     brew_install ripgrep
     brew_install luarocks
     brew_install neovim
-    brew_install_cask font-fira-code-nerd-font
+    brew_install_cask font-geist-mono-nerd-font
     brew_install delve
     brew_install gotests
     brew_install golines
