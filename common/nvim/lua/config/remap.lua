@@ -55,6 +55,8 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
 
+vim.keymap.set("n", "<leader>nt", ":terminal<CR>", opts)
+
 -- Git
 vim.keymap.set("n", "<leader>gp", ":! git pull<CR>", opts)
 vim.keymap.set("n", "<leader>gst", ":! git stash<CR>", opts)
