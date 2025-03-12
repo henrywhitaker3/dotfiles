@@ -10,5 +10,7 @@ if [[ -f /opt/homebrew/bin/gsed ]]; then
 fi
 
 alias dc='docker compose'
+alias dsh='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) sh'
+alias dbash='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) bash'
 
 alias vim=nvim
