@@ -1,5 +1,5 @@
 theme = catppuccin-macchiato
-font-family = "JetBrains Mono"
+font-family = "JetBrainsMono Nerd Font Mono"
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
