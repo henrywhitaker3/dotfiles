@@ -94,14 +94,14 @@ outer.right =      8
 # '''
 
 ctrl-alt-t = '''exec-and-forget osascript -e '
-if application "iterm" is not running then
-    activate application "iterm"
-else
-    tell application "iterm"
-        create window with default profile
-        activate
-    end tell
-end if'
+tell application "Ghostty"
+	if it is running then
+		activate
+		tell application "System Events" to keystroke "n" using {command down}
+	else
+		activate
+	end if
+end tell'
 '''
 
 ctrl-alt-f = '''exec-and-forget /Applications/Firefox.app/Contents/MacOS/firefox --new-window'''
