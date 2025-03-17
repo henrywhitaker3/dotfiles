@@ -6,5 +6,7 @@ cursor-style-blink = false
 cursor-invert-fg-bg = true
 mouse-hide-while-typing = true
 
+font-size = 16
+
 macos-titlebar-style = tabs
 macos-option-as-alt = true
