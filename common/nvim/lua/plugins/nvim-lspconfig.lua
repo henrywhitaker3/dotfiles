@@ -99,6 +99,7 @@ return {
 					"python-lsp-server",
 					"black",
 					"isort",
+					"harper-ls",
 				},
 			},
 		},
