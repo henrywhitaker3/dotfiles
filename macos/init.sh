@@ -98,6 +98,7 @@ install_brew_things() {
     brew_install lazygit
     brew_install gleam
     brew_install_cask lulu
+    brew_install_cask ghostty
 }
 
 install_audible() {
