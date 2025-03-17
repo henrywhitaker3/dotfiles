@@ -1,0 +1,10 @@
+theme = catppuccin-macchiato
+font-family = "JetBrains Mono"
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+cursor-invert-fg-bg = true
+mouse-hide-while-typing = true
+
+macos-titlebar-style = tabs
+macos-option-as-alt = true
