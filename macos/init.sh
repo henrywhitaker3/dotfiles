@@ -97,6 +97,7 @@ install_brew_things() {
     brew_install protoc-gen-go-grpc
     brew_install lazygit
     brew_install gleam
+    brew_install_cask lulu
 }
 
 install_audible() {

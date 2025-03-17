@@ -18,6 +18,7 @@ return {
 				rust = { "rustfmt" },
 				html = { "prettierd", "rustywind" },
 				gleam = { "gleam" },
+				python = { "black", "isort" },
 			},
 			format_on_save = {
 				async = false,
