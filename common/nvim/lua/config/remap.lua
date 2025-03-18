@@ -43,7 +43,7 @@ vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-/>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 
--- Indeting
+-- Indenting
 vim.keymap.set("v", "<C-[>", "<gv", opts)
 vim.keymap.set("n", "<C-[>", "v<gv<esc>", { noremap = false })
 vim.keymap.set("v", "<C-]>", ">gv", opts)

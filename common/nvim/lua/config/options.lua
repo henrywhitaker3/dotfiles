@@ -8,7 +8,7 @@ opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
 
--- Set default indentation for specific file types
+-- Set default indentation for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"tf",
