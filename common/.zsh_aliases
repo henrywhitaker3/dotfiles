@@ -14,3 +14,4 @@ alias dsh='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) sh
 alias dbash='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) bash'
 
 alias vim=nvim
+alias k9s='TERM=xterm-256color k9s'
