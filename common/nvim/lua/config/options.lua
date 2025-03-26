@@ -63,3 +63,10 @@ opt.mouse:append("a")
 -- opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "UTF-8"
+
+-- Folding
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ""
+opt.foldlevel = 99
+opt.foldnestmax = 4
