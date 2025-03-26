@@ -30,6 +30,10 @@ local config = function()
 		local setup = require("config.lsp." .. vim.fs.basename(conf):gsub("%.lua", ""))
 		setup.setup(on_attach, capabilities)
 	end
+
+	vim.diagnostic.config({
+		virtual_lines = true,
+	})
 end
 
 return {
@@ -124,22 +128,6 @@ return {
 				automatic_installation = true,
 			},
 			event = "BufReadPre",
-		},
-		{
-			"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-			config = function(_, opts)
-				require("lsp_lines").setup(opts)
-				vim.diagnostic.config({ virtual_text = false })
-				vim.api.nvim_create_autocmd("WinEnter", {
-					callback = function()
-						local floating = vim.api.nvim_win_get_config(0).relative ~= ""
-						vim.diagnostic.config({
-							virtual_text = floating,
-							virtual_lines = not floating,
-						})
-					end,
-				})
-			end,
 		},
 	},
 }
