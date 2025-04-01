@@ -55,6 +55,7 @@ return {
 						if
 							vim.bo.filetype == "vue"
 							or vim.bo.filetype == "typescript"
+							or vim.bo.filetype == "javascript"
 							or vim.bo.filetype == "DressingInput"
 							or vim.bo.filetype == "sagarename"
 						then
