@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"tf",
 		"tfvars",
+		"terraform-vars",
 		"yaml",
 		"yml",
 		"typescript",
