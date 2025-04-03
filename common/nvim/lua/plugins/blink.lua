@@ -5,6 +5,17 @@ local disabled_filetypes = {
 return {
 	"Saghen/blink.cmp",
 	version = "*",
+	dependencies = {
+		"L3MON4D3/LuaSnip",
+		dependencies = {
+			{
+				"rafamadriz/friendly-snippets",
+				config = function()
+					require("luasnip/loaders/from_vscode").lazy_load()
+				end,
+			},
+		},
+	},
 	opts = {
 		keymap = {
 			preset = "default",
@@ -25,7 +36,9 @@ return {
 			completion = { menu = { auto_show = true } },
 		},
 		sources = {
-			default = { "lsp", "buffer", "path" },
+			per_filetype = {
+				terraform = { "lsp", "buffer", "path" },
+			},
 		},
 		completion = {
 			ghost_text = { enabled = true },
