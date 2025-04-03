@@ -1,4 +1,4 @@
-local filetypes = { "terraform", "terraform-vars", "tf" }
+local filetypes = { "terraform", "terraform-vars", "tf", "tfvars" }
 
 local setup = function(on_attach, capabilities)
 	require("lspconfig").terraformls.setup({
