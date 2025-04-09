@@ -22,11 +22,16 @@ local setup = function(on_attach, capabilites)
 		},
 	})
 
+	local function get_offset_encoding(buf)
+		local client = vim.lsp.get_clients({ bufnr = buf })[1]
+		return client and client.offset_encoding or "utf-16"
+	end
+
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*.go",
-		callback = function()
-			local params = vim.lsp.util.make_range_params()
-			params.context = { only = { "source.organizeImports" } }
+		callback = function(args)
+			local params = vim.lsp.util.make_range_params(0, get_offset_encoding(args.buf))
+			-- params.context = { only = { "source.organizeImports" } }
 			-- buf_request_sync defaults to a 1000ms timeout. Depending on your
 			-- machine and codebase, you may want longer. Add an additional
 			-- argument after params if you find that you have to write the file

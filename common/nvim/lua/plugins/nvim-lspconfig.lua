@@ -3,9 +3,17 @@ local config = function()
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
+	local signConfig = {
+		text = {},
+		texthl = {},
+		numhl = {},
+	}
+
 	for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		signConfig.text[hl] = icon
+		signConfig.texthl[hl] = hl
+		signConfig.numhl[hl] = ""
 	end
 
 	local on_attach = function(client, bufnr)
@@ -33,6 +41,7 @@ local config = function()
 
 	vim.diagnostic.config({
 		virtual_lines = true,
+		signs = signConfig,
 	})
 end
 
