@@ -12,7 +12,6 @@ local setup = function(on_attach, capabilites)
 		settings = {
 			gopls = {
 				completeUnimported = true,
-				usePlaceholders = true,
 				staticcheck = true,
 				analyses = {
 					unusedparams = true,
