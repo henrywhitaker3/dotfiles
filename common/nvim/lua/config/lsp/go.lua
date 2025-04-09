@@ -30,7 +30,6 @@ local setup = function(on_attach, capabilites)
 		pattern = "*.go",
 		callback = function(args)
 			local params = vim.lsp.util.make_range_params(0, get_offset_encoding(args.buf))
-			-- params.context = { only = { "source.organizeImports" } }
 			-- buf_request_sync defaults to a 1000ms timeout. Depending on your
 			-- machine and codebase, you may want longer. Add an additional
 			-- argument after params if you find that you have to write the file
