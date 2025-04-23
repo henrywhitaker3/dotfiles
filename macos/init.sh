@@ -99,6 +99,7 @@ install_brew_things() {
     brew_install gleam
     brew_install_cask lulu
     brew_install_cask ghostty
+    brew_install git-delta
 }
 
 install_audible() {
@@ -141,6 +142,10 @@ git config --global core.excludesFile "$HOME/.gitignore"
 git config --global init.defaultBranch main
 git config --global gpg.format ssh
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
 
 echo Cleaning up defaults
 common/clean.sh
