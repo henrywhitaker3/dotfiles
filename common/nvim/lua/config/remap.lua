@@ -1,3 +1,5 @@
+vim.cmd("let g:omni_sql_no_default_maps = 1")
+
 vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
