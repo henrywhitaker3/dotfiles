@@ -38,7 +38,6 @@ return {
 		sources = {
 			per_filetype = {
 				terraform = { "lsp", "buffer", "path" },
-				sql = {},
 			},
 		},
 		completion = {

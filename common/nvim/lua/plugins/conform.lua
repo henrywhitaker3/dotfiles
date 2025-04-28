@@ -19,6 +19,7 @@ return {
 				html = { "prettierd", "rustywind" },
 				gleam = { "gleam" },
 				python = { "black", "isort" },
+				sql = { "sleek" },
 			},
 			format_on_save = {
 				async = false,
