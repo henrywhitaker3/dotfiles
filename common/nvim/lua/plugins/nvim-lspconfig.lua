@@ -112,6 +112,7 @@ return {
 					"isort",
 					"harper-ls",
 					"sleek",
+					"nilaway",
 				},
 			},
 		},
