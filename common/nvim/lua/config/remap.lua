@@ -54,6 +54,7 @@ vim.keymap.set("n", "<leader>bw", ":bw<CR>:bnext<CR>", opts)
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<leader>br", ":checktime<CR>", opts)
 
 vim.keymap.set("n", "<leader>nt", ":terminal<CR>", opts)
 
