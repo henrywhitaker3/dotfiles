@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"terraform",
 		"proto",
 		"helm",
+		"html",
 	},
 	callback = function()
 		opt.tabstop = 2
