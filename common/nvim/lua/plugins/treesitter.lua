@@ -31,6 +31,7 @@ return {
 				"proto",
 				"helm",
 				"gleam",
+				"python",
 			},
 			sync_install = false,
 			highlight = { enable = true },

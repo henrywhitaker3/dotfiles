@@ -107,7 +107,7 @@ return {
 					"rustywind",
 					"intelephense",
 					"phpcs",
-					"python-lsp-server",
+					"pyright",
 					"black",
 					"isort",
 					"sleek",
