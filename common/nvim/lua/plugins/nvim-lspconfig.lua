@@ -124,7 +124,7 @@ return {
 					"helm_ls",
 					"jsonls",
 					"gopls",
-					"volar",
+					"vue_ls",
 					"ts_ls",
 					"bashls",
 					"terraformls",
