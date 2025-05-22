@@ -83,7 +83,7 @@ return {
 					"gopls",
 					"terraform-ls",
 					"tflint",
-					-- "volar",
+					"vue_ls",
 					"eslint_d",
 					"ts_ls",
 					"helm_ls",

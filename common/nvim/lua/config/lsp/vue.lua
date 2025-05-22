@@ -1,7 +1,7 @@
 local filetypes = { "typescript", "javascript", "vue" }
 
 local setup = function(on_attach, capabilities)
-	require("lspconfig").volar.setup({
+	require("lspconfig").vue_ls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = filetypes,
