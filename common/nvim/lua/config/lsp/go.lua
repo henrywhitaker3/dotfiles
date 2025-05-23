@@ -20,6 +20,13 @@ local setup = function(on_attach, capabilites)
 			},
 		},
 	})
+
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "go",
+		callback = function()
+			vim.keymap.set({ "n", "v" }, "<leader>gt", ":GoTagAdd<CR>", { noremap = true, silent = true })
+		end,
+	})
 end
 
 return {
