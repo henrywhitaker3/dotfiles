@@ -20,6 +20,7 @@ return {
 				gleam = { "gleam" },
 				python = { "black", "isort" },
 				sql = { "sleek" },
+				hcl = { "hcl" },
 			},
 			format_on_save = {
 				async = false,

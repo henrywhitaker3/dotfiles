@@ -112,6 +112,7 @@ return {
 					"isort",
 					"sleek",
 					"nilaway",
+					"hclfmt",
 				},
 			},
 		},
