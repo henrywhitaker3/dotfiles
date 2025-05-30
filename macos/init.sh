@@ -101,6 +101,7 @@ install_brew_things() {
     brew_install_cask ghostty
     brew_install git-delta
     brew_install opentofu
+    brew_install kustomize
 }
 
 install_audible() {
