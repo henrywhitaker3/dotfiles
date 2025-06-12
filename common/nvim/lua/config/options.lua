@@ -33,6 +33,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Automatically set all .tf files to terraform by default
+vim.filetype.add({
+	extension = {
+		tf = "terraform",
+	},
+})
 -- Search
 opt.incsearch = true
 opt.ignorecase = true
