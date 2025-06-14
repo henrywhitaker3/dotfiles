@@ -146,8 +146,12 @@ if [[ -f "$HOME/.zsh_aliases" ]]; then
     source $HOME/.zsh_aliases
 fi
 
-if [[ -d /opt/nvim-linux64 ]]; then
-    export PATH="$PATH:/opt/nvim-linux64/bin"
+if [[ -d /opt/nvim-linux_x86_64 ]]; then
+    export PATH="$PATH:/opt/nvim-linux_x86_64/bin"
+fi
+
+if [[ -d /opt/nvim-linux-arm64 ]]; then
+    export PATH="$PATH:/opt/nvim-linux-arm64/bin"
 fi
 
 if [[ -d "$HOME/.orbstack" ]]; then
