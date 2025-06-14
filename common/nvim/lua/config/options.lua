@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"proto",
 		"helm",
 		"html",
+		"gleam",
 	},
 	callback = function()
 		opt.tabstop = 2
