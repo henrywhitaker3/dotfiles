@@ -102,6 +102,7 @@ install_brew_things() {
     brew_install git-delta
     brew_install opentofu
     brew_install kustomize
+    brew_install openssh
 }
 
 install_audible() {
