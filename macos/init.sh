@@ -103,6 +103,7 @@ install_brew_things() {
     brew_install opentofu
     brew_install kustomize
     brew_install openssh
+    brew_install tmux
 }
 
 install_audible() {
