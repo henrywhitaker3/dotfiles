@@ -131,6 +131,11 @@ install_rust() {
     rustup component add rustfmt
 }
 
+install_tmux() {
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+}
+
 install_homebrew
 install_ohmyzsh
 install_brew_things
