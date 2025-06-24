@@ -1,19 +1,15 @@
 return {
 	"christoomey/vim-tmux-navigator",
 	lazy = false,
-	cmd = {
-		"TmuxNavigateLeft",
-		"TmuxNavigateDown",
-		"TmuxNavigateUp",
-		"TmuxNavigateRight",
-		"TmuxNavigatePrevious",
-		"TmuxNavigatorProcessList",
-	},
-	keys = {
-		{ "n", "<C-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-		{ "n", "<C-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-		{ "n", "<C-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-		{ "n", "<C-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-		{ "n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-	},
+	init = function()
+		vim.g.tmux_navigator_no_mappings = true
+		vim.g.tmux_navigator_no_wrap = true
+	end,
+
+	config = function()
+		vim.keymap.set("n", "<C-h>", ":<C-U>TmuxNavigateLeft<CR>", { silent = true })
+		vim.keymap.set("n", "<C-j>", ":<C-U>TmuxNavigateDown<CR>", { silent = true })
+		vim.keymap.set("n", "<C-k>", ":<C-U>TmuxNavigateUp<CR>", { silent = true })
+		vim.keymap.set("n", "<C-l>", ":<C-U>TmuxNavigateRight<CR>", { silent = true })
+	end,
 }
