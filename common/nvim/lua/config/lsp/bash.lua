@@ -10,5 +10,5 @@ end
 
 return {
 	setup = setup,
-	efm = efm,
+	filetypes = filetypes,
 }

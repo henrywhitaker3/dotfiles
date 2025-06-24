@@ -32,6 +32,7 @@ return {
 				"helm",
 				"gleam",
 				"python",
+				"c_sharp",
 			},
 			sync_install = false,
 			highlight = { enable = true },
