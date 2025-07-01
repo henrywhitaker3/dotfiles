@@ -49,6 +49,7 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>ps", ":Telescope live_grep<CR>", {})
+		vim.keymap.set("n", "<leader>pw", ":Telescope grep_string<CR>", {})
 		vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", {})
 		vim.keymap.set("n", "<leader>pf", ":Telescope git_files<CR>", {})
 		vim.keymap.set("n", "<leader>pb", ":Telescope buffers<CR>", {})
