@@ -166,3 +166,7 @@ if [[ -x "$(command -v nvim)" ]]; then
     export EDITOR="nvim"
     export SUDO_EDITOR="nvim"
 fi
+
+if [ ! -f "${fpath[1]}/_helm" ] && [[ -x $(which helm) ]]; then
+    helm completion zsh > "${fpath[1]}/_helm"
+fi
