@@ -155,7 +155,7 @@ if [[ -d /opt/nvim-linux-arm64 ]]; then
 fi
 
 if [[ -d "$HOME/.orbstack" ]]; then
-    export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
+    export DOCKER_SOCKET="$HOME/.orbstack/run/docker.sock"
 fi
 
 if [[ -d "$HOME/.cargo" ]]; then
