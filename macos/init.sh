@@ -104,6 +104,8 @@ install_brew_things() {
     brew_install kustomize
     brew_install openssh
     brew_install tmux
+    brew_tap nats-io/nats-tools
+    brew_install nats-io/nats-tools/nats
 }
 
 install_audible() {
