@@ -30,7 +30,7 @@ return {
 			markdown = { "markdownlint" },
 			proto = { "protolint" },
 			html = { "htmlhint" },
-			php = { "phpcs" },
+			php = { "php" },
 			terraform = { "tflint" },
 		}
 

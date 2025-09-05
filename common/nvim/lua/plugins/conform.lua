@@ -21,6 +21,7 @@ return {
 				python = { "black", "isort" },
 				sql = { "sleek" },
 				hcl = { "hcl" },
+				php = { "php_cs_fixer" },
 			},
 			format_on_save = {
 				async = false,
