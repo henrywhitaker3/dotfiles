@@ -1,4 +1,4 @@
-local filetypes = { "go", "gomod", "gowork", "gotempl" }
+local filetypes = { "go", "gowork", "gotempl" }
 
 local setup = function(on_attach, capabilites)
 	local util = require("lspconfig/util")
