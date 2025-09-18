@@ -17,12 +17,12 @@ local config = {
 	},
 }
 
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "go",
--- 	callback = function()
--- 		vim.keymap.set({ "n", "v" }, "<leader>gt", ":GoTagAdd<CR>", { noremap = true, silent = true })
--- 	end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		vim.keymap.set({ "n", "v" }, "<leader>gt", ":GoTagAdd<CR>", { noremap = true, silent = true })
+	end,
+})
 
 return {
 	server = server,
