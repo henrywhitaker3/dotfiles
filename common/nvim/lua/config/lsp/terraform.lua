@@ -1,15 +1,11 @@
+local server = "terraformls"
 local filetypes = { "terraform", "terraform-vars", "tf", "tfvars" }
-
-local setup = function(on_attach, capabilities)
-	require("lspconfig").terraformls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		filetypes = filetypes,
-		settings = {},
-	})
-end
+local config = {
+	settings = {},
+}
 
 return {
-	setup = setup,
+	server = server,
 	filetypes = filetypes,
+	config = config,
 }

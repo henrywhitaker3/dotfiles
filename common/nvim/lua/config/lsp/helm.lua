@@ -1,5 +1,5 @@
-local server = "gleam"
-local filetypes = { "gleam" }
+local server = "helm_ls"
+local filetypes = { "helm" }
 
 return {
 	server = server,

@@ -1,4 +1,5 @@
 local config = function()
+	require("lspconfig")
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 	local signs = { Error = "", Warn = "", Hint = "", Info = "" }
@@ -36,7 +37,18 @@ local config = function()
 	local configs = vim.split(vim.fn.glob("~/.config/nvim/lua/config/lsp/*.lua"), "\n")
 	for _, conf in pairs(configs) do
 		local setup = require("config.lsp." .. vim.fs.basename(conf):gsub("%.lua", ""))
-		setup.setup(on_attach, capabilities)
+		local config = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = setup.filetypes,
+		}
+		if setup["config"] ~= nil then
+			for key, val in pairs(setup.config) do
+				config[key] = val
+			end
+		end
+		vim.lsp.config(setup.server, config)
+		vim.lsp.enable(setup.server)
 	end
 
 	vim.diagnostic.config({

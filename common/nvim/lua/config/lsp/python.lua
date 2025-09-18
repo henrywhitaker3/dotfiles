@@ -1,14 +1,7 @@
+local server = "pyright"
 local filetypes = { "python" }
 
-local setup = function(on_attach, capabilities)
-	require("lspconfig").pyright.setup({
-		filetypes = filetypes,
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-end
-
 return {
+	server = server,
 	filetypes = filetypes,
-	setup = setup,
 }

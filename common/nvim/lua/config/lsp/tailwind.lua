@@ -1,3 +1,4 @@
+local server = "tailwindcss"
 local filetypes = {
 	"aspnetcorerazor",
 	"astro",
@@ -51,26 +52,37 @@ local filetypes = {
 	"templ",
 }
 
-local setup = function(on_attach, capabilities)
-	require("lspconfig").tailwindcss.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		filetypes = filetypes,
-		root_dir = function(fname)
-			local util = require("lspconfig.util")
-			local root = util.root_pattern("tailwind.config.js", "tailwind.config.ts")(fname)
-				or util.root_pattern("nuxt.config.ts")(fname)
-				or util.root_pattern("postcss.config.js", "postcss.config.ts")(fname)
-				or util.find_package_json_ancestor(fname)
-				or util.find_node_modules_ancestor(fname)
-				or util.find_git_ancestor(fname)
-			print(root)
-			return root
-		end,
-	})
-end
+local config = {
+	root_dir = function(bufnr, on_dir)
+		local root_files = {
+			-- Generic
+			"tailwind.config.js",
+			"tailwind.config.cjs",
+			"tailwind.config.mjs",
+			"tailwind.config.ts",
+			"postcss.config.js",
+			"postcss.config.cjs",
+			"postcss.config.mjs",
+			"postcss.config.ts",
+			-- Django
+			"theme/static_src/tailwind.config.js",
+			"theme/static_src/tailwind.config.cjs",
+			"theme/static_src/tailwind.config.mjs",
+			"theme/static_src/tailwind.config.ts",
+			"theme/static_src/postcss.config.js",
+			-- Fallback for tailwind v4, where tailwind.config.* is not required anymore
+			".git",
+		}
+		local fname = vim.api.nvim_buf_get_name(bufnr)
+		local util = require("lspconfig.util")
+		root_files = util.insert_package_json(root_files, "tailwindcss", fname)
+		root_files = util.root_markers_with_field(root_files, { "mix.lock", "Gemfile.lock" }, "tailwind", fname)
+		on_dir(vim.fs.dirname(vim.fs.find(root_files, { path = fname, upward = true })[1]))
+	end,
+}
 
 return {
+	server = server,
 	filetypes = filetypes,
-	setup = setup,
+	config = config,
 }
