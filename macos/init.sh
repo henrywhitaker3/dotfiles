@@ -106,6 +106,8 @@ install_brew_things() {
     brew_install tmux
     brew_tap nats-io/nats-tools
     brew_install nats-io/nats-tools/nats
+    brew_install netbirdio/tap/netbird
+    brew_install_cask netbirdio/tap/netbird-ui
 }
 
 install_audible() {
