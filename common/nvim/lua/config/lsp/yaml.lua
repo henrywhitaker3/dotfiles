@@ -1,5 +1,5 @@
 local server = "yamlls"
-local filetypes = { "yaml" }
+local filetypes = { "yaml", "helm", "yaml.helm-values" }
 local config = {
 	settings = {
 		yaml = {
