@@ -1,10 +1,8 @@
 local server = "gopls"
 local filetypes = { "go", "gowork", "gotempl" }
 
-local util = require("lspconfig/util")
 local config = {
 	cmd = { "gopls" },
-	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
 			completeUnimported = true,
