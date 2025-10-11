@@ -37,8 +37,8 @@ install_audible() {
 }
 
 install_npm_stuff() {
-    sudo "/opt/homebrew/bin/npm" i -g @vue/typescript-plugin
-    sudo "/opt/homebrew/bin/npm" i -g @vue/language-server
+    "/opt/homebrew/bin/npm" i -g @vue/typescript-plugin
+    "/opt/homebrew/bin/npm" i -g @vue/language-server
 }
 
 install_rust() {
