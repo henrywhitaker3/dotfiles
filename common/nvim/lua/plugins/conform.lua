@@ -8,7 +8,6 @@ return {
 				lua = { "stylua" },
 				go = { "gofmt", "goimports", "golines" },
 				yaml = { "prettierd" },
-				helm = { "prettierd" },
 				json = { "prettierd" },
 				typescript = { "eslint_d" },
 				vue = { "eslint_d", "rustywind" },
