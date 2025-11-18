@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"html",
 		"gleam",
 		"json",
+		"markdown",
 	},
 	callback = function()
 		opt.tabstop = 2
