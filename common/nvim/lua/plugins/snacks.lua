@@ -1,5 +1,7 @@
 return {
 	"folke/snacks.nvim",
+	priority = 1000,
+	lazy = false,
 	opts = {
 		lazygit = {
 			configure = true,
@@ -23,48 +25,57 @@ return {
 			function()
 				Snacks.picker.files({ layout = "dropdown" })
 			end,
+			desc = "Open snacks file picker",
 		},
 		{
 			"<leader>pf",
 			function()
-				Snacks.picker.files({ layout = { preview = false, preset = "vertical" } })
+				---@diagnostic disable-next-line: assign-type-mismatch
+				Snacks.picker.files({ hidden = true, ignored = true, layout = { preview = false, preset = "vertical" } })
 			end,
+			desc = "Open snacks file picker with no preview",
 		},
 		{
 			"<leader>ps",
 			function()
 				Snacks.picker.grep({ layout = "dropdown" })
 			end,
+			desc = "Open snacks search",
 		},
 		{
 			"<leader>pw",
 			function()
 				Snacks.picker.grep_word({ layout = "dropdown" })
 			end,
+			desc = "Search for a word",
 		},
 		{
 			"<leader>pb",
 			function()
 				Snacks.picker.buffers({ layout = "dropdown" })
 			end,
+			desc = "Show open buffers",
 		},
 		{
 			"<leader>po",
 			function()
 				Snacks.picker.lsp_symbols({ layout = "dropdown" })
 			end,
+			desc = "Show lsp symbols",
 		},
 		{
 			"<leader>pr",
 			function()
 				Snacks.picker.lsp_references({ layout = "dropdown" })
 			end,
+			desc = "Show lsp references",
 		},
 		{
 			"<leader>pm",
 			function()
 				Snacks.picker.marks({ layout = "dropdown" })
 			end,
+			desc = "Show marks",
 		},
 	},
 }
