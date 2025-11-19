@@ -26,6 +26,12 @@ return {
 			end,
 		},
 		{
+			"<leader>ps",
+			function()
+				Snacks.picker.grep({ layout = "dropdown" })
+			end,
+		},
+		{
 			"<leader>pw",
 			function()
 				Snacks.picker.grep_word({ layout = "dropdown" })

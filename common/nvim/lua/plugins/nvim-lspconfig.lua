@@ -63,15 +63,6 @@ return {
 	lazy = false,
 	dependencies = {
 		{
-			"windwp/nvim-autopairs",
-			event = "InsertEnter",
-			opts = {
-				fast_wrap = {},
-				disable_filetype = { "TelescopePrompt", "vim" },
-				inlay_hints = { enabled = true },
-			},
-		},
-		{
 			"williamboman/mason.nvim",
 			cmd = "Mason",
 			event = { "BufReadPre", "BufNewFile" },
