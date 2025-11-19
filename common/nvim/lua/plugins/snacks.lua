@@ -5,6 +5,11 @@ return {
 			configure = true,
 		},
 		picker = {},
+		indent = {
+			animate = {
+				enabled = false,
+			},
+		},
 	},
 	keys = {
 		{

@@ -3,7 +3,7 @@ return {
 	version = "*",
 	lazy = false,
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
+		"nvim-mini/mini.nvim",
 	},
 	opts = {
 		disable_netrw = true,

@@ -11,9 +11,7 @@ local config = {
 			},
 			workspace = {
 				checkThirdParty = false,
-				library = {
-					vim.env.VIMRUNTIME .. "/lua",
-				},
+				library = vim.api.nvim_get_runtime_file("", true),
 			},
 		},
 	},
