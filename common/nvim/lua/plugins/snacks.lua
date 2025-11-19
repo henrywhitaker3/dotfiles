@@ -12,6 +12,7 @@ return {
 				enabled = false,
 			},
 		},
+		gh = {},
 	},
 	keys = {
 		{
@@ -23,7 +24,7 @@ return {
 		{
 			"<C-p>",
 			function()
-				Snacks.picker.files({ layout = "dropdown" })
+				Snacks.picker.files({ hidden = true, layout = "dropdown" })
 			end,
 			desc = "Open snacks file picker",
 		},
@@ -76,6 +77,20 @@ return {
 				Snacks.picker.marks({ layout = "dropdown" })
 			end,
 			desc = "Show marks",
+		},
+		{
+			"<leader>ghp",
+			function()
+				Snacks.picker.gh_pr()
+			end,
+			desc = "Show github pull requests",
+		},
+		{
+			"<leader>ghi",
+			function()
+				Snacks.picker.gh_issue()
+			end,
+			desc = "Show github pull issues",
 		},
 	},
 }
