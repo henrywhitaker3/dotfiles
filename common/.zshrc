@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/nvim-linux64/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/go/bin:$PATH"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
