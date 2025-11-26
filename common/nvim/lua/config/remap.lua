@@ -32,8 +32,8 @@ vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
 vim.keymap.set("n", "<leader>sh", ":split<CR>", opts)
 vim.keymap.set("n", "<leader>cd", ":chdir<Space>", opts)
 vim.keymap.set("n", "<leader>qa", ":qa<CR>", opts)
-vim.keymap.set({ "n", "v" }, "H", "^", opts)
-vim.keymap.set({ "n", "v" }, "L", "$", opts)
+vim.keymap.set({ "n", "v", "o" }, "H", "^", opts)
+vim.keymap.set({ "n", "v", "o" }, "L", "$", opts)
 
 -- Commenting
 vim.api.nvim_set_keymap("i", "<C-/>", "<esc>gcc<S-a>", { noremap = false })
