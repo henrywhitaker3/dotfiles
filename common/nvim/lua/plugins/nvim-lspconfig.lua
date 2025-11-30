@@ -52,7 +52,9 @@ local config = function()
 	end
 
 	vim.diagnostic.config({
-		virtual_lines = true,
+		virtual_text = {
+			severity = "ERROR",
+		},
 		signs = signConfig,
 	})
 end
