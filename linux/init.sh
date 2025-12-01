@@ -60,6 +60,10 @@ if [[ ! -d "$HOME/.zsh/zsh-syntax-highlighting" ]]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
 fi
 
+if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt" ]]; then
+    git clone https://github.com/superbrothers/zsh-kubectl-prompt.git "$HOME/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt"
+fi
+
 # Install neovim dependencies
 "$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
 "$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
