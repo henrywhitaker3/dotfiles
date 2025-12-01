@@ -16,6 +16,9 @@ install_ohmyzsh() {
         echo Installing OhMyZsh
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
+    if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt" ]]; then
+        git clone https://github.com/superbrothers/zsh-kubectl-prompt.git "$HOME/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt"
+    fi
 }
 
 install_brew_things() {
