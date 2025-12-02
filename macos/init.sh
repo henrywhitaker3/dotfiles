@@ -1,58 +1,55 @@
 #!/bin/bash
 
 install_homebrew() {
-    if [[ ! -f /opt/homebrew/bin/brew ]]; then
-        echo Installing homebrew
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    else
-        echo Homebrew already installed
-    fi
+  if [[ ! -f /opt/homebrew/bin/brew ]]; then
+    echo Installing homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  else
+    echo Homebrew already installed
+  fi
 }
 
 install_ohmyzsh() {
-    if [[ -d "$HOME/.oh-my-zsh" ]]; then
-        echo OhMyZsh already installed
-    else
-        echo Installing OhMyZsh
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-    if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt" ]]; then
-        git clone https://github.com/superbrothers/zsh-kubectl-prompt.git "$HOME/.oh-my-zsh/custom/plugins/zsh-kubectl-prompt"
-    fi
+  if [[ -d "$HOME/.oh-my-zsh" ]]; then
+    echo OhMyZsh already installed
+  else
+    echo Installing OhMyZsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
 }
 
 install_brew_things() {
-    brew bundle install --file ~/.config/Brewfile
+  brew bundle install --file ~/.config/Brewfile
 }
 
 install_audible() {
-    mkdir -p ~/.local/bin
+  mkdir -p ~/.local/bin
 
-    if [[ ! -f "$HOME/.local/bin/audible" ]]; then
-        echo Installing audible-cli
-        /opt/homebrew/bin/pipx install audible-cli
-    fi
-    if [[ ! -f "$HOME/.local/bin/aaxtomp3" ]]; then
-        echo Installing aaxtomp3
-        /opt/homebrew/bin/wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
-        chmod +x "$HOME/.local/bin/aaxtomp3"
-    fi
+  if [[ ! -f "$HOME/.local/bin/audible" ]]; then
+    echo Installing audible-cli
+    /opt/homebrew/bin/pipx install audible-cli
+  fi
+  if [[ ! -f "$HOME/.local/bin/aaxtomp3" ]]; then
+    echo Installing aaxtomp3
+    /opt/homebrew/bin/wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
+    chmod +x "$HOME/.local/bin/aaxtomp3"
+  fi
 }
 
 install_npm_stuff() {
-    "/opt/homebrew/bin/npm" i -g @vue/typescript-plugin
-    "/opt/homebrew/bin/npm" i -g @vue/language-server
+  "/opt/homebrew/bin/npm" i -g @vue/typescript-plugin
+  "/opt/homebrew/bin/npm" i -g @vue/language-server
 }
 
 install_rust() {
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    rustup component add rust-analyzer
-    rustup component add rustfmt
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  rustup component add rust-analyzer
+  rustup component add rustfmt
 }
 
 install_tmux() {
-    mkdir -p "$HOME/.tmux/plugins"
-    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  mkdir -p "$HOME/.tmux/plugins"
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 }
 
 install_homebrew

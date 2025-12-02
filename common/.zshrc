@@ -3,8 +3,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git ssh-agent golang zsh-kubectl-prompt)
+plugins=(git ssh-agent golang)
 
+zstyle :zsh-kubectl-prompt: namespace false
 zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 zstyle :omz:plugins:ssh-agent identities id_ed25519
@@ -43,7 +44,6 @@ fi
 
 autoload -U promptinit; promptinit
 prompt pure
-export RPROMPT="%{$fg[blue]%}($ZSH_KUBECTL_CONTEXT)%{$reset_color%}"
 
 source <(fzf --zsh)
 
