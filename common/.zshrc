@@ -43,6 +43,7 @@ fi
 
 autoload -U promptinit; promptinit
 prompt pure
+export RPROMPT=""
 
 source <(fzf --zsh)
 
