@@ -5,7 +5,6 @@ ZSH_THEME="robbyrussell"
 
 plugins=(git ssh-agent golang)
 
-zstyle :zsh-kubectl-prompt: namespace false
 zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 zstyle :omz:plugins:ssh-agent identities id_ed25519
