@@ -68,6 +68,9 @@ sudo npm i -g vscode-langservers-extracted
 sudo npm i -g @vue/typescript-plugin
 sudo npm i -g @vue/language-server
 
+mkdir -p "$HOME/.tmux/plugins"
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
