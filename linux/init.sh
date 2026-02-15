@@ -1,83 +1,61 @@
 #!/bin/bash
 
-sudo apt update && sudo apt install gpg -y
+install_task() {
+    if [[ ! -d ~/.local/bin ]]; then
+        mkdir -p ~/.local/bin
+    fi
+    if [[ ! -f ~/.local/bin/task ]]; then
+        sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+    fi
+}
 
-# Install terraform
-if [[ ! -f "/usr/share/keyrings/hashicorp-archive-keyring.gpg" ]]; then
-    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-fi
+install_homebrew() {
+    if [[ ! -d /home/linuxbrew ]]; then
+        echo Installing homebrew
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    else
+        echo Homebrew already installed
+    fi
+}
 
-if [[ ! -f "/usr/share/keyrings/debian.griffio.gpg" ]]; then
-    curl -sS https://debian.griffo.io/EA0F721D231FDD3A0A17B9AC7808B4DD62C41256.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/debian.griffo.io.gpg
-    echo "deb [signed-by=/usr/share/keyrings/debian.griffio.gpg] https://debian.griffo.io/apt bookworm main" | sudo tee /etc/apt/sources.list.d/debian.griffo.io.list
-fi
+install_ohmyzsh() {
+    if [[ -d "$HOME/.oh-my-zsh" ]]; then
+        echo OhMyZsh already installed
+    else
+        echo Installing OhMyZsh
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+}
 
-curl -fsSL https://deb.nodesource.com/setup_23.x | sudo bash
+install_brew_things() {
+    /home/linuxbrew/.linuxbrew/bin/brew bundle install --file ~/.config/Brewfile
+}
 
-sudo apt update && sudo apt install -y vim \
-    wget \
-    gcc \
-    ripgrep \
-    luarocks \
-    zsh \
-    stow \
-    git \
-    fzf \
-    terraform \
-    fonts-firacode \
-    make \
-    python3 \
-    python3-venv \
-    nodejs \
-    lazygit \
-    ghostty \
-    tmux
+install_npm_stuff() {
+    "/home/linuxbrew/.linuxbrew/bin/npm" i -g @vue/typescript-plugin
+    "/home/linuxbrew/.linuxbrew/bin/npm" i -g @vue/language-server
+}
 
-sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+install_rust() {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    rustup component add rust-analyzer
+    rustup component add rustfmt
+}
 
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-rm nvim-linux64.tar.gz
+install_tmux() {
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+}
 
-if [[ ! -d "$HOME/.go" ]]; then
-    current=$(pwd)
-    wget -O /tmp/go.tar.gz "https://go.dev/dl/go1.23.5.linux-$(dpkg --print-architecture).tar.gz" || exit 1
-    cd /tmp && tar -xzvf go.tar.gz && mv go "$HOME/.go" && cd "$current" || exit 1
-fi
+sudo apt update && sudo apt install -y git stow zsh python3-pip python3-venv
+install_task
+install_homebrew
+install_ohmyzsh
+install_brew_things
+install_npm_stuff
+install_rust
 
-if [[ ! -d "$HOME/.zsh/pure" ]]; then
-    mkdir -p "$HOME/.zsh"
-    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-fi
-
-if [[ ! -d "$HOME/.zsh/zsh-autosuggestions" ]]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
-fi
-
-if [[ ! -d "$HOME/.zsh/zsh-syntax-highlighting" ]]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"
-fi
-
-# Install neovim dependencies
-"$HOME/.go/bin/go" install golang.org/x/tools/gopls@latest
-"$HOME/.go/bin/go" install github.com/go-delve/delve/cmd/dlv@latest
-"$HOME/.go/bin/go" install github.com/segmentio/golines@latest
-sudo npm i -g vscode-langservers-extracted
-sudo npm i -g @vue/typescript-plugin
-sudo npm i -g @vue/language-server
-
-mkdir -p "$HOME/.tmux/plugins"
-git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup component add rust-analyzer
-rustup component add rustfmt
-
-wget -O /tmp/delta.deb https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb
+/home/linuxbrew/.linuxbrew/bin/helm plugin install https://github.com/databus23/helm-diff
 
 git config --global user.name "Henry Whitaker"
 git config --global user.email "henrywhitaker3@outlook.com"
@@ -94,5 +72,5 @@ curl https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppucc
 git config --global include.path "$HOME/.catppuccin.gitconfig"
 git config --global delta.features catppuccin-macchiato
 
-echo Cleaning default config file
-./common/clean.sh
+echo Cleaning up defaults
+common/clean.sh

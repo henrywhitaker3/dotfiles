@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/nvim-linux64/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/nvim-linux64/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/go/bin:$PATH:/home/linuxbrew/.linuxbrew/bin:$HOME/.cargo/bin"
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -18,28 +18,16 @@ bindkey '\e[H'    beginning-of-line
 bindkey '\e[F'    end-of-line
 
 eval "$(task --completion zsh)"
-if [[ -f /opt/homebrew/bin/brew ]]; then
-    source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-else
-    source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 export OLLAMA_HOST="10.0.0.54"
 if [[ -f "$HOME/.ollama_localhost" ]]; then
     export OLLAMA_HOST="127.0.0.1"
 fi
 
-if [[ -f /opt/homebrew/bin/brew ]]; then
-    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-    source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
-    fpath+=("$(brew --prefix)/share/zsh/site-functions")
-else
-    fpath+=("$HOME/.zsh/pure")
-fi
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U promptinit; promptinit
 prompt pure
