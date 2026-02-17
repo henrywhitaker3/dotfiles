@@ -21,6 +21,9 @@ return {
 	"catppuccin/nvim",
 	lazy = false,
 	priority = 999,
+	opts = {
+		auto_integrations = true,
+	},
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
 		toggle()
