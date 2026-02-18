@@ -36,6 +36,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "helm" },
+	callback = function()
+		vim.schedule(function()
+			vim.treesitter.start()
+		end)
+	end,
+})
+
 -- Automatically set all .tf files to terraform by default
 vim.filetype.add({
 	extension = {

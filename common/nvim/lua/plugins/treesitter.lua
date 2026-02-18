@@ -41,6 +41,7 @@ return {
 			ensure_installed = languages,
 			sync_install = false,
 			highlight = { enable = true },
+			fold = { enabled = true },
 			indent = { enable = true },
 		},
 	},
