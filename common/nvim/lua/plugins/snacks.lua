@@ -59,24 +59,12 @@ return {
 			desc = "Search for a word",
 		},
 		{
-			"<C-e>",
+			"<leader>pb",
 			function()
 				Snacks.picker.buffers({ layout = "dropdown" })
 			end,
 			desc = "Show open buffers",
 		},
-		-- {
-		-- 	"<C-b>",
-		-- 	function()
-		-- 		Snacks.picker.explorer(explorer)
-		-- 	end,
-		-- },
-		-- {
-		-- 	"<leader>f",
-		-- 	function()
-		-- 		Snacks.picker.explorer(explorer)
-		-- 	end,
-		-- },
 		{
 			"<leader>po",
 			function()
