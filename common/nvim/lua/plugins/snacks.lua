@@ -1,12 +1,20 @@
+---@type snacks.picker.explorer.Config
+local explorer = {
+	filters = {
+		dotfiles = true,
+		custom = { "^%.git$" },
+	},
+}
+
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	---@type snacks.Config
 	opts = {
 		lazygit = {
 			configure = true,
 		},
-		picker = {},
 		indent = {
 			animate = {
 				enabled = false,
@@ -51,12 +59,24 @@ return {
 			desc = "Search for a word",
 		},
 		{
-			"<leader>pb",
+			"<C-e>",
 			function()
 				Snacks.picker.buffers({ layout = "dropdown" })
 			end,
 			desc = "Show open buffers",
 		},
+		-- {
+		-- 	"<C-b>",
+		-- 	function()
+		-- 		Snacks.picker.explorer(explorer)
+		-- 	end,
+		-- },
+		-- {
+		-- 	"<leader>f",
+		-- 	function()
+		-- 		Snacks.picker.explorer(explorer)
+		-- 	end,
+		-- },
 		{
 			"<leader>po",
 			function()
@@ -90,7 +110,14 @@ return {
 			function()
 				Snacks.picker.gh_issue()
 			end,
-			desc = "Show github pull issues",
+			desc = "Show github issues",
+		},
+		{
+			"<leader>gha",
+			function()
+				Snacks.picker.gh_actions()
+			end,
+			desc = "Show github actions",
 		},
 	},
 }

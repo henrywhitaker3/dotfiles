@@ -36,6 +36,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local path = vim.fn.argv(0)
+		if path ~= "" then
+			vim.fn.chdir(vim.fn.fnamemodify(path, ":p:h"))
+		end
+	end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "helm" },
 	callback = function()
