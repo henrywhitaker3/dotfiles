@@ -10,7 +10,7 @@ install_task() {
 }
 
 install_homebrew() {
-    if [[ ! -d /home/linuxbrew ]]; then
+    if [[ ! -d /home/linuxbrew/.linuxbrew ]]; then
         echo Installing homebrew
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
