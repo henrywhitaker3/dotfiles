@@ -18,7 +18,9 @@ local config = {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "go",
 	callback = function()
-		vim.keymap.set({ "n", "v" }, "<leader>gt", ":GoTagAdd<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>gt", function()
+			vim.cmd("!go mod tidy")
+		end)
 	end,
 })
 
