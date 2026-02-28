@@ -21,8 +21,21 @@ return {
 			},
 		},
 		gh = {},
+		zen = {},
 	},
 	keys = {
+		{
+			"<leader>z",
+			function()
+				Snacks.zen.zen({
+					win = {
+						backdrop = {
+							transparent = false,
+						},
+					},
+				})
+			end,
+		},
 		{
 			"<leader>gi",
 			function()

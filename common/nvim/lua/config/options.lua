@@ -10,6 +10,7 @@ opt.wrap = false
 
 vim.keymap.set("n", "<leader>w", function()
 	vim.cmd("set wrap!")
+	vim.cmd("set linebreak!")
 end)
 
 -- Set default indentation for specific filetypes
