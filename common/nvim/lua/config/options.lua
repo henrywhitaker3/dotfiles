@@ -8,6 +8,10 @@ opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
 
+vim.keymap.set("n", "<leader>w", function()
+	vim.cmd("set wrap!")
+end)
+
 -- Set default indentation for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
