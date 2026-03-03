@@ -18,3 +18,5 @@ alias vim=nvim
 alias k9s='TERM=xterm-256color k9s'
 
 alias grt='go test ./... -run ^$( go test -list . ./... | grep -E "^Test" | fzf )'
+
+alias kubectx='kubectx && source ~/.zshrc'

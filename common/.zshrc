@@ -29,9 +29,23 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
+_kube_context="$(cat "$HOME/.kube/config" | yq -r '.current-context')"
+_colour="blue"
+if [[ "$_kube_context" =~ "-prd-|-prod-" ]]; then
+    _colour="red"
+fi
+
 autoload -U promptinit; promptinit
 prompt pure
-export RPROMPT=""
+
+if [[ ! -f "$HOME/.hide_kube_prompt" ]]; then
+    _lineup=$'\e[1A'
+    _linedown=$'\e[1B'
+    _kutl='%F{$_colour}${_kube_context}%f'
+    export RPROMPT=%{${_lineup}%}${_kutl}%{${_linedown}%}
+else
+    export RPROMPT=""
+fi
 
 source <(fzf --zsh)
 
