@@ -32,7 +32,7 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
-if [[ ! -f "$HOME/.hide_kube_prompt" ]]; then
+if [[ ! -f "$HOME/.hide_kube_prompt" ]] && [[ -f "$HOME/.kube/config" ]]; then
     _kube_context="$(cat "$HOME/.kube/config" | yq -r '.current-context')"
     _colour="blue"
     if [[ "$_kube_context" =~ "-prd-|-prod-" ]]; then
