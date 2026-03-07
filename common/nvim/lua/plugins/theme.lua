@@ -1,5 +1,5 @@
 local theme = {
-	dark = "catppuccin-macchiato",
+	dark = "catppuccin-mocha",
 	light = "catppuccin-latte",
 }
 
@@ -23,6 +23,12 @@ return {
 	priority = 999,
 	opts = {
 		auto_integrations = true,
+		color_overrides = {
+			mocha = {
+				pink = "#CBA6F7",
+				mauve = "#FAA7E6",
+			},
+		},
 	},
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
