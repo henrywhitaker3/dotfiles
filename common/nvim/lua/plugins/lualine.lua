@@ -10,12 +10,11 @@ end
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
-		local theme = require("lualine.themes.catppuccin")
 		local blame = require("gitblame")
 
 		require("lualine").setup({
 			options = {
-				theme = theme,
+				theme = "auto",
 				globalstatus = true,
 			},
 			sections = {
