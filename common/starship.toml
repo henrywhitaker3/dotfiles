@@ -1,0 +1,54 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+format = """
+$directory\
+$shell\
+$cmd_duration\
+$git_branch\
+$git_status\
+$kubernetes\
+$fill\
+$all\
+$line_break\
+$character\
+"""
+
+[fill]
+symbol = ' '
+
+[character]
+success_symbol = '[❯](white)'
+
+[directory]
+truncate_to_repo = false
+
+[cmd_duration]
+min_time = 10_000
+
+[package]
+disabled = false
+
+[golang]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[kubernetes]
+disabled = false
+format = '[$context]($style)'
+
+[[kubernetes.contexts]]
+context_pattern = ".*(prod|prd).*"
+style = "bold red"
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = ''
+style = "dimmed white"
+
+[git_status]
+modified = '*'
+format = '([$modified]($style) )'
+style = 'yellow'
