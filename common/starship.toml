@@ -24,6 +24,9 @@ success_symbol = '[❯](white)'
 truncate_to_repo = false
 style = "blue bold"
 
+[docker_context]
+disabled = true
+
 [cmd_duration]
 format = '[$duration]($style) '
 min_time = 10_000
