@@ -4,10 +4,10 @@ add_newline = true
 format = """
 $directory\
 $shell\
-$cmd_duration\
+$kubernetes\
 $git_branch\
 $git_status\
-$kubernetes\
+$cmd_duration\
 $fill\
 $all\
 $line_break\
@@ -22,8 +22,10 @@ success_symbol = '[❯](white)'
 
 [directory]
 truncate_to_repo = false
+style = "blue bold"
 
 [cmd_duration]
+format = '[$duration]($style) '
 min_time = 10_000
 
 [package]
@@ -37,7 +39,7 @@ disabled = true
 
 [kubernetes]
 disabled = false
-format = '[$context]($style)'
+format = '[$context]($style) '
 
 [[kubernetes.contexts]]
 context_pattern = ".*(prod|prd).*"
