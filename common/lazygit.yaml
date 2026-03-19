@@ -1,5 +1,6 @@
 gui:
   showRandomTip: false
+  skipDiscardChangeWarning: true
 git:
   pagers:
     - colorArg: always
