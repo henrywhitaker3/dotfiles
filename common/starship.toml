@@ -32,7 +32,7 @@ format = '[$duration]($style) '
 min_time = 10_000
 
 [package]
-disabled = false
+disabled = true
 
 [golang]
 disabled = true
@@ -57,3 +57,6 @@ style = "dimmed white"
 modified = '*'
 format = '([$modified]($style) )'
 style = 'yellow'
+
+[python]
+disabled = true
