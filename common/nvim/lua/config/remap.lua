@@ -47,7 +47,15 @@ vim.keymap.set("n", "<leader>bn", ":enew<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>br", ":checktime<CR>", opts)
-vim.keymap.set("n", "<C-q>", ":copen", opts)
+vim.keymap.set("n", "<C-q>", function()
+	for _, win in ipairs(vim.fn.getwininfo()) do
+		if win.quickfix == 1 then
+			vim.cmd("cclose")
+			return
+		end
+	end
+	vim.cmd("copen")
+end, opts)
 
 -- Git
 vim.keymap.set("n", "<leader>gb", function()
