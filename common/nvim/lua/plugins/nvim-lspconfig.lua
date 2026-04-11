@@ -20,7 +20,7 @@ local config = function()
 	local on_attach = function(client, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 
-		if client.supports_method("textDocument/inlayHint") then
+		if client:supports_method("textDocument/inlayHint") then
 			vim.lsp.inlay_hint.enable(true, { bufnr })
 		end
 
