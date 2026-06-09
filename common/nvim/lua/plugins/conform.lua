@@ -21,6 +21,7 @@ return {
 				sql = { "sleek" },
 				hcl = { "hcl" },
 				php = { "php_cs_fixer" },
+				terramate = { "terramate_fmt" },
 			},
 			format_on_save = {
 				async = false,
@@ -30,6 +31,11 @@ return {
 			formatters = {
 				black = {
 					prepend_args = { "--fast" },
+				},
+				terramate_fmt = {
+					command = "terramate",
+					args = { "fmt", "$FILENAME" },
+					stdin = false,
 				},
 			},
 		})
