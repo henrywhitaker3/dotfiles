@@ -2,14 +2,8 @@ local server = "terramate-ls"
 local filetypes = { "terramate" }
 
 local config = {
-	default_config = {
-		cmd = { "terramate-ls" },
-		filetypes = { "terramate" },
-		root_dir = function()
-			local util = require("lspconfig.util")
-			return util.root_pattern(".git", "terramate.tm.hcl")
-		end,
-	},
+	cmd = { "terramate-ls" },
+	root_markers = { ".git" },
 }
 
 return {
