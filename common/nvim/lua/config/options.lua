@@ -64,6 +64,10 @@ vim.filetype.add({
 	extension = {
 		tf = "terraform",
 	},
+	pattern = {
+		["*.tf.tmgen"] = "terraform",
+		["*.json.tmgen"] = "json",
+	},
 })
 -- Search
 opt.incsearch = true
