@@ -65,8 +65,8 @@ vim.filetype.add({
 		tf = "terraform",
 	},
 	pattern = {
-		["*.tf.tmgen"] = "terraform",
-		["*.json.tmgen"] = "json",
+		[".*%.tf.tmgen"] = "terraform",
+		[".*%.json.tmgen"] = "json",
 	},
 })
 -- Search
