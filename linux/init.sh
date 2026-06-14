@@ -47,7 +47,7 @@ install_tmux() {
     git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 }
 
-sudo apt update && sudo apt install -y git stow zsh python3-pip python3-venv
+sudo apt update && sudo apt install -y git stow zsh python3-pip python3-venv bubblewrap
 install_task
 install_homebrew
 install_ohmyzsh
