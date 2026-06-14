@@ -67,4 +67,6 @@ if [ ! -f "${fpath[1]}/_helm" ] && [[ -x $(which helm) ]]; then
     helm completion zsh > "${fpath[1]}/_helm"
 fi
 
-eval "$($(brew --prefix)/bin/mise activate zsh)"
+if [[ ! -f "$HOME/.skip_mise_shell" ]]; then
+    eval "$($(brew --prefix)/bin/mise activate zsh)"
+fi
