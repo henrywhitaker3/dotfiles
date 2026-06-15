@@ -71,6 +71,7 @@ git config --global delta.side-by-side true
 curl https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig >"$HOME/.catpuccin.gitconfig"
 git config --global include.path "$HOME/.catppuccin.gitconfig"
 git config --global delta.features catppuccin-macchiato
+git config --global url."git@github.com:".insteadOf "https://github.com/"
 
 echo Cleaning up defaults
 common/clean.sh
