@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"tfvars",
 		"terraform-vars",
 		"hcl",
+		"terramate",
 		"yaml",
 		"yml",
 		"typescript",
