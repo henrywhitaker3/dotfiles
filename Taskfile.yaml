@@ -42,6 +42,11 @@ tasks:
     cmds:
       - ./macos/init.sh
 
+  brew:
+    desc: Install the brew file
+    cmds:
+      - brew bundle install --file ~/.config/Brewfile
+
   macos:
     desc: Run macos:init and macos:stow
     cmds:

@@ -11,9 +11,9 @@ brew "watch"
 brew "sops"
 brew "fzf"
 brew "zsh-autosuggestions"
-brew "go-task/tap/go-task"
+brew "go-task/tap/go-task", trusted: true
 brew "stow"
-brew "ariga/tap/atlas"
+brew "ariga/tap/atlas", trusted: true
 brew "sqlc"
 brew "yq"
 brew "jq"
@@ -49,9 +49,8 @@ brew "kustomize"
 brew "openssh"
 brew "tmux"
 cask "font-jetbrains-mono-nerd-font"
-tap "hashicorp/tap"
-tap "nats-io/nats-tools"
-brew "nats-io/nats-tools/nats"
+tap "nats-io/nats-tools", trusted: true
+brew "nats-io/nats-tools/nats", trusted: true
 brew "kiota"
 brew "sloth-cli"
 brew "gh"

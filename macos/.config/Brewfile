@@ -11,16 +11,15 @@ brew "vim"
 brew "go"
 cask "1password"
 cask "1password-cli"
-brew "hashicorp/tap/terraform"
 brew "watch"
 cask "orbstack"
 cask "spotify"
 brew "sops"
 brew "fzf"
 brew "zsh-autosuggestions"
-brew "go-task/tap/go-task"
+brew "go-task/tap/go-task", trusted: true
 brew "stow"
-brew "ariga/tap/atlas"
+brew "ariga/tap/atlas", trusted: true
 brew "sqlc"
 cask "visual-studio-code"
 brew "grep"
@@ -68,12 +67,11 @@ cask "wireshark-app"
 cask "firefox"
 cask "google-chrome"
 cask "bruno"
-cask "nikitabobko/tap/aerospace"
-tap "hashicorp/tap"
-tap "nats-io/nats-tools"
-brew "nats-io/nats-tools/nats"
-cask "netbirdio/tap/netbird-ui"
-brew "netbirdio/tap/netbird"
+cask "nikitabobko/tap/aerospace", trusted: true
+tap "nats-io/nats-tools", trusted: true
+brew "nats-io/nats-tools/nats", trusted: true
+cask "netbirdio/tap/netbird-ui", trusted: true
+brew "netbirdio/tap/netbird", trusted: true
 brew "kiota"
 brew "sloth-cli"
 cask "obsidian"
