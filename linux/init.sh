@@ -32,6 +32,7 @@ install_brew_things() {
 }
 
 install_npm_stuff() {
+    "/home/linuxbrew/.linuxbrew/bin/npm config set cafile /etc/ssl/certs/ca-certificates.crt
     "/home/linuxbrew/.linuxbrew/bin/npm" i -g @vue/typescript-plugin
     "/home/linuxbrew/.linuxbrew/bin/npm" i -g @vue/language-server
 }
