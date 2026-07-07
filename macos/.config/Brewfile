@@ -1,5 +1,4 @@
 brew "git"
-cask "alt-tab"
 brew "helm"
 brew "age"
 brew "k9s"
