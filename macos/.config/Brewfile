@@ -20,7 +20,6 @@ brew "go-task/tap/go-task", trusted: true
 brew "stow"
 brew "ariga/tap/atlas", trusted: true
 brew "sqlc"
-cask "visual-studio-code"
 brew "grep"
 brew "gnu-sed"
 brew "yq"
