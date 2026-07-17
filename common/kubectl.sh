@@ -21,7 +21,7 @@ for arg in "$@"; do
 done
 
 if [[ "$pipeTo" == "" ]]; then
-    kubectl "${args[@]}"
+    "$(brew --prefix)"/bin/kubectl "${args[@]}"
 else
-    kubectl "${args[@]}" | "$pipeTo"
+    "$(brew --prefix)"/bin/kubectl "${args[@]}" | "$pipeTo"
 fi

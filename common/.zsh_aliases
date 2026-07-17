@@ -20,3 +20,4 @@ alias grt='go test ./... -run ^$( go test -list . ./... | grep -E "^Test" | fzf 
 
 alias kctx=kubectx
 alias kunset='kubectl config unset current-context'
+alias kubectl="$HOME/.local/bin/k"
