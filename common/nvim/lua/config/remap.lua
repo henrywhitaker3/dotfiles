@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>", opts)
 vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc><Esc>", opts)
 
-vim.keymap.set({ "n", "v" }, "sy", '"*y')
-vim.keymap.set({ "n", "v" }, "sp", '"*p')
+vim.keymap.set({ "n", "v" }, "sy", '"+y')
+vim.keymap.set({ "n", "v" }, "sp", '"+p')
 
 -- Save
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>i", opts)
