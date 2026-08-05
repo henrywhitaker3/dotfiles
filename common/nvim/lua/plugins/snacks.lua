@@ -1,8 +1,25 @@
 ---@type snacks.picker.explorer.Config
 local explorer = {
-	filters = {
-		dotfiles = true,
-		custom = { "^%.git$" },
+	enter = true,
+	hidden = true,
+	ignored = false,
+	git_untracked = true,
+	exclude = { ".git" },
+	layout = {
+		preset = "sidebar",
+		preview = false,
+		hidden = { "input" },
+		layout = {
+			width = 30,
+			min_width = 30,
+		},
+	},
+	win = {
+		list = {
+			keys = {
+				["<c-p>"] = false,
+			},
+		},
 	},
 }
 
@@ -20,6 +37,14 @@ return {
 				enabled = false,
 			},
 		},
+		explorer = {
+			replace_netrw = true,
+		},
+		picker = {
+			sources = {
+				explorer = explorer,
+			},
+		},
 		gh = {},
 		zen = {},
 	},
@@ -33,6 +58,20 @@ return {
 							transparent = false,
 						},
 					},
+				})
+			end,
+		},
+		{
+			"<leader>f",
+			function()
+				Snacks.explorer()
+			end,
+		},
+		{
+			"<C-b>",
+			function()
+				Snacks.explorer.open({
+					focus = false,
 				})
 			end,
 		},

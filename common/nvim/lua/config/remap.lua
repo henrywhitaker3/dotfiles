@@ -4,8 +4,6 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>", opts)
-vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc><Esc>", opts)
 
 vim.keymap.set({ "n", "v" }, "sy", '"+y')
