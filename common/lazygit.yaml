@@ -2,8 +2,8 @@ gui:
   showRandomTip: false
   skipDiscardChangeWarning: true
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never
+      command: delta --dark --paging=never
   commit:
     signOff: true
