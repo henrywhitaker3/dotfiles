@@ -12,4 +12,5 @@ ignore = {
 read_globals = {
 	"vim",
 	"Snacks",
+	"redis",
 }
