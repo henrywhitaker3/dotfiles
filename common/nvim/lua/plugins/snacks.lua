@@ -62,6 +62,12 @@ return {
 			end,
 		},
 		{
+			"<leader>bw",
+			function()
+				Snacks.bufdelete.delete()
+			end,
+		},
+		{
 			"<leader>f",
 			function()
 				Snacks.explorer()
