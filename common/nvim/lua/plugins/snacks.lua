@@ -10,8 +10,8 @@ local explorer = {
 		preview = false,
 		hidden = { "input" },
 		layout = {
-			width = 30,
-			min_width = 30,
+			width = 33,
+			min_width = 33,
 		},
 	},
 	win = {
