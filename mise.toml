@@ -1,0 +1,144 @@
+[tools]
+node = "latest"
+task = "latest"
+"aqua:ariga/atlas" = "latest"
+"npm:@vue/typescript-plugin" = "latest"
+"npm:@vue/language-server" = "latest"
+
+[settings]
+dotfiles.root = "~/code/dotfiles"
+dotfiles.default_mode = "symlink"
+
+[dotfiles]
+"~/.zshrc" = "common/.zshrc"
+"~/.bashrc" = "common/.bashrc"
+"~/.config/starship.toml" = "common/starship.toml"
+"~/.tmux.conf" = "common/.tmux.conf"
+"~/.bash_aliases" = "common/.bash_aliases"
+"~/.zsh_aliases" = "common/.zsh_aliases"
+"~/.local/bin/k" = "common/kubectl.sh"
+"~/.local/bin/squash" = "common/squash.sh"
+"~/.local/bin/upbrew" = "common/brew_upgrade.sh"
+"~/.local/bin/wip" = "common/wip.sh"
+"~/.local/bin/checkout" = "common/checkout.sh"
+"~/.local/bin/audidown" = "common/audidown.sh"
+"~/.config/ghostty" = "common/ghostty"
+"~/.config/nvim" = "common/nvim"
+
+[tasks.install]
+description = "Setup the system"
+run = """
+MISE_AUTO_ENV=true mise bootstrap --force-dotfiles
+mise run install_ohmyzsh
+mise run gitconfig
+mise run tmux
+mise run rust
+"""
+
+[tasks.install_ohmyzsh]
+run = """
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+"""
+
+[tasks.tmux]
+run = """
+if [ ! -d "$HOME/.tmux/plugins" ]; then
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+"""
+
+[tasks.rust]
+run = """
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+rustup component add rust-analyzer
+rustup component add rustfmt
+"""
+
+[tasks.gitconfig]
+description = "Configure default gitconfig"
+run = """
+git config --global user.name "Henry Whitaker"
+git config --global user.email "henrywhitaker3@outlook.com"
+git config --global core.excludesFile "$HOME/.gitignore"
+git config --global init.defaultBranch main
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
+git config --global delta.side-by-side true
+curl https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig >"$HOME/.catpuccin.gitconfig"
+git config --global include.path "$HOME/.catppuccin.gitconfig"
+git config --global delta.features catppuccin-macchiato
+git config --global url."git@github.com:".insteadOf "https://github.com/"
+"""
+
+[settings.npm]
+package_manager = "npm"
+
+[bootstrap.packages]
+"brew:go-task" = "latest"
+"brew:git" = "latest"
+"brew:mise" = "latest"
+"brew:task" = "latest"
+"brew:starship" = "latest"
+"brew:fzf" = "latest"
+"brew:go" = "latest"
+"brew:neovim" = "latest"
+"brew:zsh-autosuggestions" = "latest"
+"brew:zsh-syntax-highlighting" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew:gcc" = "latest"
+"brew:helm" = "latest"
+"brew:age" = "latest"
+"brew:k9s" = "latest"
+"brew:kubernetes-cli" = "latest"
+"brew:pre-commit" = "latest"
+"brew:vim" = "latest"
+"brew:watch" = "latest"
+"brew:sops" = "latest"
+"brew:stow" = "latest"
+"brew:sqlc" = "latest"
+"brew:yq" = "latest"
+"brew:jq" = "latest"
+"brew:ansible" = "latest"
+"brew:nmap" = "latest"
+"brew:wget" = "latest"
+"brew:pipx" = "latest"
+"brew:findutils" = "latest"
+"brew:ffmpeg" = "latest"
+"brew:ripgrep" = "latest"
+"brew:luarocks" = "latest"
+"brew:delve" = "latest"
+"brew:gotests" = "latest"
+"brew:golines" = "latest"
+"brew:typescript" = "latest"
+"brew:vscode-langservers-extracted" = "latest"
+"brew:helmfile" = "latest"
+"brew:screen" = "latest"
+"brew:grpc" = "latest"
+"brew:buf" = "latest"
+"brew:protoc-gen-go" = "latest"
+"brew:protoc-gen-go-grpc" = "latest"
+"brew:lazygit" = "latest"
+"brew:gleam" = "latest"
+"brew:git-delta" = "latest"
+"brew:opentofu" = "latest"
+"brew:kustomize" = "latest"
+"brew:openssh" = "latest"
+"brew:tmux" = "latest"
+"brew:gh" = "latest"
+"brew:uv" = "latest"
+"brew:tree-sitter-cli" = "latest"
+"brew:terramate" = "latest"
+"brew:git-cliff" = "latest"
+"apt:git" = "latest"
+"apt:zsh" = "latest"
+"apt:python3-pip" = "latest"
+"apt:python3-venv" = "latest"
+"apt:bubblewrap" = "latest"
+"brew:ollama" = "latest"

@@ -1,0 +1,14 @@
+[dotfiles]
+"~/.config/lazygit/config.yml" = "common/lazygit.yaml"
+
+[bootstrap.hooks.post-packages]
+run = """
+if [ ! -d /home/linuxbrew ]; then
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+"""
+
+[bootstrap.hooks.post-dotfiles]
+run = """
+npm config set cafile /etc/ssl/certs/ca-certificates.crt
+"""

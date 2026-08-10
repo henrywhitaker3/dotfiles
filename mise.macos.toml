@@ -1,0 +1,58 @@
+[dotfiles]
+"~/.aerospace.toml" = "macos/.aerospace.toml"
+"~/.gitignore" = "macos/.gitignore"
+"~/Library/Application Support/jesseduffield/lazygit/config.yml" = "common/lazygit.yaml"
+
+[bootstrap.packages]
+"brew-cask:mediainfo" = "latest"
+"brew-cask:tor-browser" = "latest"
+"brew-cask:calibre" = "latest"
+"brew-cask:1password" = "latest"
+"brew-cask:orbstack" = "latest"
+"brew-cask:spotify" = "latest"
+"brew:grep" = "latest"
+"brew:gnu-sed" = "latest"
+"brew-cask:discord" = "latest"
+"brew-cask:lulu" = "latest"
+"brew-cask:ghostty" = "latest"
+"brew-cask:dbeaver-community" = "latest"
+"brew-cask:firefox" = "latest"
+"brew-cask:google-chrome" = "latest"
+"brew-cask:bruno" = "latest"
+"brew-cask:obsidian" = "latest"
+"brew-cask:1password-cli" = "latest"
+
+[bootstrap.hooks.post-packages]
+run = """
+if [ ! -d /opt/homebrew ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+"""
+
+[bootstrap.hooks.post-dotfiles]
+run = """
+if [[ ! -f "$HOME/.local/bin/audible" ]]; then
+    echo Installing audible-cli
+    /opt/homebrew/bin/pipx install audible-cli
+fi
+if [[ ! -f "$HOME/.local/bin/aaxtomp3" ]]; then
+    echo Installing aaxtomp3
+    /opt/homebrew/bin/wget https://raw.githubusercontent.com/KrumpetPirate/AAXtoMP3/refs/heads/master/AAXtoMP3 -O "$HOME/.local/bin/aaxtomp3"
+    chmod +x "$HOME/.local/bin/aaxtomp3"
+fi
+
+/opt/homebrew/bin/brew install --cask nikitabobko/tap/aerospace
+/opt/homebrew/bin/brew install netbirdio/tap/netbird
+/opt/homebrew/bin/brew install --cask netbirdio/tap/netbird-ui
+"""
+
+[bootstrap.macos.dock]
+autohide = true
+
+[bootstrap.macos.keyboard]
+key_repeat = 2
+initial_key_repeat = 15
+press_and_hold = true
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
