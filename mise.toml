@@ -1,9 +1,5 @@
 [tools]
 node = "latest"
-task = "latest"
-"aqua:ariga/atlas" = "latest"
-"npm:@vue/typescript-plugin" = "latest"
-"npm:@vue/language-server" = "latest"
 
 [settings]
 dotfiles.root = "~/code/dotfiles"
@@ -29,10 +25,20 @@ dotfiles.default_mode = "symlink"
 description = "Setup the system"
 run = """
 MISE_AUTO_ENV=true mise bootstrap --force-dotfiles
+mise run global_tools
 mise run install_ohmyzsh
 mise run gitconfig
 mise run tmux
 mise run rust
+"""
+
+[tasks.global_tools]
+run = """
+mise use -g npm:prettier
+mise use -g node@latest
+mise use -g "aqua:ariga/atlas"@latest
+mise use -g "npm:@vue/typescript-plugin"@latest
+mise use -g "npm:@vue/language-server"@latest
 """
 
 [tasks.install_ohmyzsh]
@@ -84,7 +90,6 @@ package_manager = "npm"
 "brew:go-task" = "latest"
 "brew:git" = "latest"
 "brew:mise" = "latest"
-"brew:task" = "latest"
 "brew:starship" = "latest"
 "brew:fzf" = "latest"
 "brew:go" = "latest"
