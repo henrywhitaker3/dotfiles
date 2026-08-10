@@ -9,6 +9,7 @@ return {
 			require("mini.comment").setup()
 			require("mini.trailspace").setup()
 			require("mini.icons").setup()
+			require("mini.splitjoin").setup()
 		end,
 		init = function()
 			---@diagnostic disable-next-line: duplicate-set-field
