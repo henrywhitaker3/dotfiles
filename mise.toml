@@ -34,9 +34,7 @@ mise run rust
 
 [tasks.global_tools]
 run = """
-mise use -g npm:prettier
 mise use -g node@latest
-mise use -g "aqua:ariga/atlas"@latest
 mise use -g "npm:@vue/typescript-plugin"@latest
 mise use -g "npm:@vue/language-server"@latest
 """
@@ -91,7 +89,11 @@ git config --global url."git@github.com:".insteadOf "https://github.com/"
 [settings.npm]
 package_manager = "npm"
 
+[bootstrap.brew.taps]
+"ariga/tap/atlas" = "https://github.com/ariga/homebrew-tap.git"
+
 [bootstrap.packages]
+"brew:ariga/tap/atlas" = "latest"
 "brew:go-task" = "latest"
 "brew:git" = "latest"
 "brew:mise" = "latest"
