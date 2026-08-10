@@ -66,8 +66,13 @@ rustup component add rustfmt
 [tasks.gitconfig]
 description = "Configure default gitconfig"
 run = """
+git_email="henrywhitaker3@outlook.com"
+if [ -f "$HOME/.git_email" ]; then
+    git_email=$(cat "$HOME/.git_email")
+fi
+
 git config --global user.name "Henry Whitaker"
-git config --global user.email "henrywhitaker3@outlook.com"
+git config --global user.email "$git_email"
 git config --global core.excludesFile "$HOME/.gitignore"
 git config --global init.defaultBranch main
 git config --global gpg.format ssh
