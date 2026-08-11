@@ -92,11 +92,7 @@ package_manager = "npm"
 [bootstrap.user]
 login_shell = "/bin/zsh"
 
-[bootstrap.brew.taps]
-"ariga/tap/atlas" = "https://github.com/ariga/homebrew-tap.git"
-
 [bootstrap.packages]
-"brew:ariga/tap/atlas" = "latest"
 "brew:go-task" = "latest"
 "brew:git" = "latest"
 "brew:mise" = "latest"

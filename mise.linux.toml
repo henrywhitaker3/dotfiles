@@ -11,4 +11,5 @@ fi
 [bootstrap.hooks.post-dotfiles]
 run = """
 npm config set cafile /etc/ssl/certs/ca-certificates.crt
+/home/linuxbrew/.linuxbrew/bin/brew install ariga/tap/atlas
 """
