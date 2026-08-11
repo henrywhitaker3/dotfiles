@@ -44,9 +44,18 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		local path = vim.fn.argv(0)
-		if path ~= "" then
-			vim.fn.chdir(vim.fn.fnamemodify(path, ":p:h"))
+		local path = vim.fn.argv(0) --[[@as string]]
+		if path == "" then
+			return
+		end
+
+		local dir = vim.fn.fnamemodify(path, ":p")
+		if vim.fn.isdirectory(dir) == 0 then
+			dir = vim.fn.fnamemodify(dir, ":h")
+		end
+
+		if vim.fn.isdirectory(dir) == 1 then
+			vim.fn.chdir(dir)
 		end
 	end,
 })
