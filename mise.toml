@@ -89,6 +89,9 @@ git config --global url."git@github.com:".insteadOf "https://github.com/"
 [settings.npm]
 package_manager = "npm"
 
+[bootstrap.user]
+login_shell = "/bin/zsh"
+
 [bootstrap.brew.taps]
 "ariga/tap/atlas" = "https://github.com/ariga/homebrew-tap.git"
 
