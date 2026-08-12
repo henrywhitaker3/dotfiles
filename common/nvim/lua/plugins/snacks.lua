@@ -1,10 +1,29 @@
+local prefix_glob = "*/generated_*"
+
+---@class picker snacks.Picker.Config
+local function toggle_prefix(picker)
+	picker.opts.hide_prefixed = not picker.opts.hide_prefixed
+	local exclude = vim.tbl_filter(function(glob)
+		return glob ~= prefix_glob
+	end, picker.opts.exclude or {})
+	if picker.opts.hide_prefixed then
+		table.insert(exclude, prefix_glob)
+	end
+	picker.opts.exclude = exclude
+	picker.list:set_target()
+	picker:find()
+end
+
 ---@type snacks.picker.explorer.Config
 local explorer = {
 	enter = true,
 	hidden = true,
 	ignored = false,
 	git_untracked = true,
-	exclude = { ".git" },
+	hide_prefixed = true,
+	exclude = { ".git", prefix_glob },
+	toggles = { hide_prefixed = "g" },
+	actions = { toggle_prefix = toggle_prefix },
 	layout = {
 		preset = "sidebar",
 		preview = false,
@@ -18,6 +37,7 @@ local explorer = {
 		list = {
 			keys = {
 				["<c-p>"] = false,
+				["F"] = "toggle_prefix",
 			},
 		},
 	},
