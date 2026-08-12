@@ -68,3 +68,9 @@ fi
 if [[ ! -f "$HOME/.skip_mise_shell" ]]; then
     eval "$($(brew --prefix)/bin/mise activate zsh)"
 fi
+
+groot() {
+  local root
+  root=$(git rev-parse --show-toplevel) || return 1
+  cd -- "$root"
+}
