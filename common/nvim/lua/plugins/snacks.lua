@@ -21,7 +21,7 @@ local explorer = {
 	ignored = false,
 	git_untracked = true,
 	hide_prefixed = true,
-	exclude = { ".git", prefix_glob },
+	exclude = { ".git", ".terraform", prefix_glob },
 	toggles = { hide_prefixed = "g" },
 	actions = { toggle_prefix = toggle_prefix },
 	layout = {
