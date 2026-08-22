@@ -38,6 +38,7 @@ run = """
 mise use -g node@latest
 mise use -g "npm:@vue/typescript-plugin"@latest
 mise use -g "npm:@vue/language-server"@latest
+mise use -g "npm:@openai/codex"@latest
 """
 
 [tasks.install_ohmyzsh]
@@ -148,7 +149,6 @@ login_shell = "/bin/zsh"
 "brew:tree-sitter-cli" = "latest"
 "brew:terramate" = "latest"
 "brew:git-cliff" = "latest"
-"brew-cask:codex" = "latest"
 "brew-cask:claude-code" = "latest"
 "apt:git" = "latest"
 "apt:zsh" = "latest"
