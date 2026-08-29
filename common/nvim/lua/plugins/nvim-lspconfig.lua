@@ -17,10 +17,10 @@ local config = function()
 		signConfig.numhl[hl] = ""
 	end
 
-	local on_attach = function(client, bufnr)
+	local on_attach = function(_, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 
-		if client:supports_method("textDocument/inlayHint") then
+		if #vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/inlayHint" }) > 0 then
 			vim.lsp.inlay_hint.enable(true, { bufnr })
 		end
 
