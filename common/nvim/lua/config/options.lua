@@ -11,7 +11,7 @@ opt.wrap = false
 vim.keymap.set("n", "<leader>w", function()
 	vim.cmd("set wrap!")
 	vim.cmd("set linebreak!")
-end)
+end, { desc = "Toggle line wrapping" })
 
 -- Set default indentation for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {

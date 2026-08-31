@@ -2,11 +2,11 @@ return {
 	"mfussenegger/nvim-dap",
 	config = function()
 		local opts = { noremap = true, silent = true }
-		vim.keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", opts)
-		vim.keymap.set("n", "<leader>dcb", "<cmd>DapClearBreakpoints<CR>", opts)
-		vim.keymap.set("n", "<leader>dso", "<cmd>DapStepOver<CR>", opts)
-		vim.keymap.set("n", "<leader>dsi", "<cmd>DapStepInto<CR>", opts)
-		vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>", opts)
+		vim.keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", vim.tbl_extend("force", {}, opts, { desc = "Toggle breakpoint" }))
+		vim.keymap.set("n", "<leader>dcb", "<cmd>DapClearBreakpoints<CR>", vim.tbl_extend("force", {}, opts, { desc = "Clear breakpoints" }))
+		vim.keymap.set("n", "<leader>dso", "<cmd>DapStepOver<CR>", vim.tbl_extend("force", {}, opts, { desc = "Step over" }))
+		vim.keymap.set("n", "<leader>dsi", "<cmd>DapStepInto<CR>", vim.tbl_extend("force", {}, opts, { desc = "Step into" }))
+		vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>", vim.tbl_extend("force", {}, opts, { desc = "Terminate debugger" }))
 
 		vim.api.nvim_set_hl(0, "red", { fg = "#cc122e" })
 		vim.api.nvim_set_hl(0, "blue", { fg = "#3d59a1" })

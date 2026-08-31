@@ -80,18 +80,21 @@ return {
 					},
 				})
 			end,
+			desc = "Toggle Zen mode",
 		},
 		{
 			"<leader>bw",
 			function()
 				Snacks.bufdelete.delete()
 			end,
+			desc = "Delete buffer",
 		},
 		{
 			"<leader>f",
 			function()
 				Snacks.explorer()
 			end,
+			desc = "Open file explorer",
 		},
 		{
 			"<C-b>",
@@ -100,12 +103,14 @@ return {
 					focus = false,
 				})
 			end,
+			desc = "Show file explorer",
 		},
 		{
 			"<leader>gi",
 			function()
 				Snacks.lazygit.open()
 			end,
+			desc = "Open LazyGit",
 		},
 		{
 			"<C-p>",

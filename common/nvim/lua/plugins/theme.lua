@@ -33,6 +33,6 @@ return {
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
 		toggle()
-		vim.keymap.set("n", "<leader>ct", toggle, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>ct", toggle, { noremap = true, silent = true, desc = "Toggle color theme" })
 	end,
 }

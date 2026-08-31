@@ -8,6 +8,6 @@ return {
 	config = function(_, opts)
 		require("gopher").setup(opts)
 		-- vim.cmd.GoInstallDeps()
-		vim.keymap.set("i", "<C-g>e", "<cmd>GoIfErr<CR>", { noremap = true, silent = true })
+		vim.keymap.set("i", "<C-g>e", "<cmd>GoIfErr<CR>", { noremap = true, silent = true, desc = "Add Go error check" })
 	end,
 }

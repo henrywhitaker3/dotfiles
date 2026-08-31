@@ -19,19 +19,22 @@ local config = function()
 
 	local on_attach = function(_, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
+		local function map(lhs, rhs, desc)
+			vim.keymap.set("n", lhs, rhs, vim.tbl_extend("force", {}, opts, { desc = desc }))
+		end
 
 		if #vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/inlayHint" }) > 0 then
 			vim.lsp.inlay_hint.enable(true, { bufnr })
 		end
 
-		vim.keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
-		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-		vim.keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>", opts)
-		vim.keymap.set("n", "<leader>sd", "<cmd>Lspsaga peek_definition<CR>", opts)
-		vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-		vim.keymap.set("n", "<leader>nd", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-		vim.keymap.set("n", "<leader>pd", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+		map("gf", "<cmd>Lspsaga finder<CR>", "Find references and definitions")
+		map("K", "<cmd>Lspsaga hover_doc<CR>", "Show hover documentation")
+		map("<leader>gd", "<cmd>Lspsaga goto_definition<CR>", "Go to definition")
+		map("<leader>sd", "<cmd>Lspsaga peek_definition<CR>", "Peek definition")
+		map("<leader>ca", "<cmd>Lspsaga code_action<CR>", "Code action")
+		map("<leader>nd", "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next diagnostic")
+		map("<leader>pd", "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Previous diagnostic")
+		map("<leader>rn", "<cmd>Lspsaga rename<CR>", "Rename symbol")
 	end
 
 	local configs = vim.split(vim.fn.glob("~/.config/nvim/lua/config/lsp/*.lua"), "\n")

@@ -18,9 +18,9 @@ local config = {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "go",
 	callback = function()
-		vim.keymap.set("n", "<leader>gt", function()
-			vim.cmd("!go mod tidy")
-		end)
+	vim.keymap.set("n", "<leader>gt", function()
+		vim.cmd("!go mod tidy")
+	end, { desc = "Run go mod tidy" })
 	end,
 })
 

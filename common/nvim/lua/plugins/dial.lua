@@ -156,9 +156,9 @@ return {
 		vim.g.dials_by_ft = opts.dials_by_ft
 		vim.keymap.set("n", "<C-a>", function()
 			require("dial.map").manipulate("increment", "normal")
-		end)
+		end, { desc = "Increment value" })
 		vim.keymap.set("n", "<C-x>", function()
 			require("dial.map").manipulate("decrement", "normal")
-		end)
+		end, { desc = "Decrement value" })
 	end,
 }

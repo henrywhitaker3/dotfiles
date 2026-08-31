@@ -3,48 +3,51 @@ vim.cmd("let g:omni_sql_no_default_maps = 1")
 vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
+local function map(mode, lhs, rhs, desc, options)
+	vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", {}, options or opts, { desc = desc }))
+end
 
-vim.keymap.set({ "i", "v" }, "<C-c>", "<Esc><Esc>", opts)
+map({ "i", "v" }, "<C-c>", "<Esc><Esc>", "Exit insert or visual mode")
 
-vim.keymap.set({ "n", "v" }, "sy", '"+y')
-vim.keymap.set({ "n", "v" }, "sp", '"+p')
+map({ "n", "v" }, "sy", '"+y', "Yank to system clipboard")
+map({ "n", "v" }, "sp", '"+p', "Paste from system clipboard")
 
 -- Save
-vim.keymap.set("i", "<C-s>", "<esc>:w<CR>i", opts)
-vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
+map("i", "<C-s>", "<esc>:w<CR>i", "Save file")
+map("n", "<C-s>", ":w<CR>", "Save file")
 
 -- Move lines
-vim.keymap.set("n", "<leader>mj", "ddjP", opts)
-vim.keymap.set("n", "<leader>mk", "ddkkp", opts)
+map("n", "<leader>mj", "ddjP", "Move line down")
+map("n", "<leader>mk", "ddkkp", "Move line up")
 
 -- Navigation
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", opts)
-vim.keymap.set("n", "<leader>sh", ":split<CR>", opts)
-vim.keymap.set("n", "<leader>cd", ":chdir<Space>", opts)
-vim.keymap.set("n", "<leader>qa", ":qa<CR>", opts)
-vim.keymap.set({ "n", "v", "o" }, "H", "^", opts)
-vim.keymap.set({ "n", "v", "o" }, "L", "$", opts)
+map("n", "<leader>sv", ":vsplit<CR>", "Split window vertically")
+map("n", "<leader>sh", ":split<CR>", "Split window horizontally")
+map("n", "<leader>cd", ":chdir<Space>", "Change working directory")
+map("n", "<leader>qa", ":qa<CR>", "Quit all")
+map({ "n", "v", "o" }, "H", "^", "Go to first non-blank character")
+map({ "n", "v", "o" }, "L", "$", "Go to end of line")
 
 -- Commenting
-vim.api.nvim_set_keymap("i", "<C-/>", "<esc>gcc<S-a>", { noremap = false })
-vim.api.nvim_set_keymap("i", "<C-_>", "<esc>gcc<S-a>", { noremap = false })
-vim.api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = false })
-vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
-vim.api.nvim_set_keymap("v", "<C-/>", "gcc", { noremap = false })
-vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
+vim.api.nvim_set_keymap("i", "<C-/>", "<esc>gcc<S-a>", { noremap = false, desc = "Toggle comment" })
+vim.api.nvim_set_keymap("i", "<C-_>", "<esc>gcc<S-a>", { noremap = false, desc = "Toggle comment" })
+vim.api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = false, desc = "Toggle comment" })
+vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false, desc = "Toggle comment" })
+vim.api.nvim_set_keymap("v", "<C-/>", "gcc", { noremap = false, desc = "Toggle comment selection" })
+vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false, desc = "Toggle comment selection" })
 
 -- Indenting
-vim.keymap.set("v", "<C-[>", "<gv", opts)
-vim.keymap.set("n", "<C-[>", "v<gv<esc>", { noremap = false })
-vim.keymap.set("v", "<C-]>", ">gv", opts)
-vim.keymap.set("n", "<C-]>", "v>gv<esc>", { noremap = false })
+map("v", "<C-[>", "<gv", "Unindent selection")
+map("n", "<C-[>", "v<gv<esc>", "Unindent line", { noremap = false })
+map("v", "<C-]>", ">gv", "Indent selection")
+map("n", "<C-]>", "v>gv<esc>", "Indent line", { noremap = false })
 
 -- Buffers
-vim.keymap.set("n", "<leader>bn", ":enew<CR>", opts)
-vim.keymap.set("n", "<S-Tab>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>br", ":checktime<CR>", opts)
-vim.keymap.set("n", "<C-q>", function()
+map("n", "<leader>bn", ":enew<CR>", "Create new buffer")
+map("n", "<S-Tab>", ":bnext<CR>", "Next buffer")
+map("n", "<leader>bp", ":bprevious<CR>", "Previous buffer")
+map("n", "<leader>br", ":checktime<CR>", "Reload changed buffers")
+map("n", "<C-q>", function()
 	for _, win in ipairs(vim.fn.getwininfo()) do
 		if win.quickfix == 1 then
 			vim.cmd("cclose")
@@ -52,13 +55,13 @@ vim.keymap.set("n", "<C-q>", function()
 		end
 	end
 	vim.cmd("copen")
-end, opts)
+end, "Toggle quickfix list")
 
 -- Git
-vim.keymap.set("n", "<leader>gb", function()
+map("n", "<leader>gb", function()
 	local to = 1
 	if vim.g.gitblame_display_virtual_text == 1 then
 		to = 0
 	end
 	vim.g.gitblame_display_virtual_text = to
-end, opts)
+end, "Toggle Git blame")
