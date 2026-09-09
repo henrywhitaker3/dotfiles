@@ -137,7 +137,7 @@ return {
 					"vue_ls",
 					"ts_ls",
 					"bashls",
-					"tofuls",
+					"tofu_ls",
 					"marksman",
 					"rust_analyzer",
 					"tailwindcss",

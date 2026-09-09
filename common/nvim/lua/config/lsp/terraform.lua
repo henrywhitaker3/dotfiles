@@ -1,4 +1,4 @@
-local server = "tofuls"
+local server = "tofu_ls"
 local filetypes = { "terraform", "terraform-vars", "tf", "tfvars" }
 local config = {
 	settings = {},
