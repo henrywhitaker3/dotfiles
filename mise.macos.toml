@@ -1,3 +1,5 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
 [dotfiles]
 "~/.aerospace.toml" = "macos/.aerospace.toml"
 "~/.gitignore" = "macos/.gitignore"
@@ -46,6 +48,9 @@ fi
 /opt/homebrew/bin/brew install netbirdio/tap/netbird
 /opt/homebrew/bin/brew install --cask netbirdio/tap/netbird-ui
 """
+
+[bootstrap.macos.finder]
+preferred_view_style = "column"
 
 [bootstrap.macos.dock]
 autohide = true
