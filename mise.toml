@@ -94,6 +94,9 @@ package_manager = "npm"
 [bootstrap.user]
 login_shell = "/bin/zsh"
 
+[bootstrap.brew]
+adopt = true
+
 [bootstrap.packages]
 "brew:go-task" = "latest"
 "brew:git" = "latest"
