@@ -2,6 +2,7 @@ gui:
   showRandomTip: false
   skipDiscardChangeWarning: true
 git:
+  overrideGpg: true
   diffRenderers:
     - colorArg: always
       command: delta --dark --paging=never
