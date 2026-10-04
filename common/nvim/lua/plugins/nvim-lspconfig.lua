@@ -52,6 +52,16 @@ local config = function()
 		end
 		vim.lsp.config(setup.server, config)
 		vim.lsp.enable(setup.server)
+		if setup["keys"] ~= nil then
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = setup.filetypes,
+				callback = function()
+					for key, value in pairs(setup.keys) do
+						vim.keymap.set(value.modes, key, value.action, { desc = value.desc })
+					end
+				end,
+			})
+		end
 	end
 
 	vim.diagnostic.config({
