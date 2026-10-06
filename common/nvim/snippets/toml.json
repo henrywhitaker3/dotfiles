@@ -1,0 +1,7 @@
+{
+  "mise schema hint": {
+    "prefix": "mise-schema",
+    "description": "Add a mise TOML schema hint",
+    "body": ["#:schema https://mise.jdx.dev/schema/mise.json", "", "$0"]
+  }
+}

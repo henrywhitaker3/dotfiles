@@ -1,0 +1,7 @@
+{
+	"yaml-language-server schema hint": {
+		"prefix": "schema",
+		"description": "Add a yaml language server schema hint",
+		"body": ["---", "# yaml-language-server: \\$schema=${1:url}", "$0"]
+	}
+}
