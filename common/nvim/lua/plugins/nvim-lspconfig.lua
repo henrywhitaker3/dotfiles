@@ -55,9 +55,9 @@ local config = function()
 		if setup["keys"] ~= nil then
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = setup.filetypes,
-				callback = function()
+				callback = function(args)
 					for key, value in pairs(setup.keys) do
-						vim.keymap.set(value.modes, key, value.action, { desc = value.desc })
+						vim.keymap.set(value.modes, key, value.action, { desc = value.desc, buffer = args.buf })
 					end
 				end,
 			})
