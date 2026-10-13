@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Create a branch containing every open Renovate pull request for this repo.
-# Conflicts are resolved in favour of the incoming Renovate change so the
-# result can be inspected, adjusted, and pushed as one update.
+# Git resolves non-overlapping changes automatically. A real conflict is left
+# for review rather than silently discarding an earlier Renovate update.
 
 set -euo pipefail
 
 usage() {
 	printf 'Usage: %s [branch-name]\n' "${0##*/}" >&2
+	printf '       %s --continue\n' "${0##*/}" >&2
 	printf 'Default branch name: renovate/bulk-YYYYmmdd-HHMMSS\n' >&2
 }
 
@@ -21,6 +22,11 @@ if [[ $# -gt 1 ]]; then
 	exit 2
 fi
 
+continue_mode=false
+if [[ "${1:-}" == '--continue' ]]; then
+	continue_mode=true
+fi
+
 command -v git >/dev/null 2>&1 || die 'git is required'
 command -v gh >/dev/null 2>&1 || die 'the GitHub CLI (gh) is required'
 
@@ -31,20 +37,26 @@ if git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
 fi
 git remote get-url origin >/dev/null 2>&1 || die 'the repository needs an origin remote'
 
-default_branch="$(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')" || die 'could not determine the GitHub default branch'
-[[ -n "$default_branch" && "$default_branch" != 'null' ]] || die 'GitHub did not report a default branch'
+if [[ "$continue_mode" == true ]]; then
+	branch_name="$(git branch --show-current)"
+	[[ -n "$branch_name" ]] || die '--continue requires a checked-out branch'
+	printf 'Continuing merges on %s...\n' "$branch_name"
+else
+	default_branch="$(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')" || die 'could not determine the GitHub default branch'
+	[[ -n "$default_branch" && "$default_branch" != 'null' ]] || die 'GitHub did not report a default branch'
 
-branch_name="${1:-renovate/bulk-$(date +%Y%m%d-%H%M%S)}"
-git check-ref-format --branch "$branch_name" >/dev/null 2>&1 || die "invalid branch name: $branch_name"
-if git show-ref --verify --quiet "refs/heads/$branch_name"; then
-	die "local branch already exists: $branch_name"
+	branch_name="${1:-renovate/bulk-$(date +%Y%m%d-%H%M%S)}"
+	git check-ref-format --branch "$branch_name" >/dev/null 2>&1 || die "invalid branch name: $branch_name"
+	if git show-ref --verify --quiet "refs/heads/$branch_name"; then
+		die "local branch already exists: $branch_name"
+	fi
+
+	printf 'Fetching the latest origin/%s...\n' "$default_branch"
+	git fetch --prune origin "refs/heads/$default_branch:refs/remotes/origin/$default_branch"
+
+	printf 'Creating %s from origin/%s...\n' "$branch_name" "$default_branch"
+	git checkout --no-track -b "$branch_name" "origin/$default_branch"
 fi
-
-printf 'Fetching the latest origin/%s...\n' "$default_branch"
-git fetch --prune origin "refs/heads/$default_branch:refs/remotes/origin/$default_branch"
-
-printf 'Creating %s from origin/%s...\n' "$branch_name" "$default_branch"
-git checkout --no-track -b "$branch_name" "origin/$default_branch"
 
 prs="$(gh pr list --state open --limit 1000 --json number,headRefName --jq 'sort_by(.number)[] | select(.headRefName | startswith("renovate/")) | [.number, .headRefName] | @tsv')" || die 'could not list pull requests'
 
@@ -67,10 +79,10 @@ while IFS=$'\t' read -r number head_ref; do
 		continue
 	fi
 
-	# The ort strategy resolves many dependency-file conflicts itself. -X theirs
-	# makes overlapping hunks prefer the Renovate PR; any remaining unmerged
-	# paths are handled below with the same policy.
-	if git merge --no-commit --no-ff -X theirs FETCH_HEAD; then
+	# Git's normal merge handles all non-overlapping dependency changes. Do not
+	# use a "theirs" strategy here: it can silently discard an earlier PR when
+	# multiple Renovate updates change the same lockfile or manifest entry.
+	if git merge --no-commit --no-ff --rerere-autoupdate FETCH_HEAD; then
 		if git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
 			git commit --no-edit
 		fi
@@ -78,26 +90,23 @@ while IFS=$'\t' read -r number head_ref; do
 		continue
 	fi
 
-	if ! git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
-		die "merge of PR #$number failed before a conflict state; branch left at $branch_name"
+	if git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
+		# A previously recorded rerere resolution can leave a completed merge
+		# even though git merge returned a conflict status.
+		if [[ -z "$(git ls-files --unmerged)" ]]; then
+			git commit --no-edit
+			merged=$((merged + 1))
+			continue
+		fi
+
+		printf '\nPR #%s has conflicts. Resolve them, then run:\n' "$number" >&2
+		printf '  git add <resolved-files> && git commit\n' >&2
+		printf '  %s --continue\n' "$0" >&2
+		printf 'The branch contains the earlier PRs; later PRs will be merged on continue.\n' >&2
+		exit 1
 	fi
 
-	printf 'Resolving remaining conflicts in favour of PR #%s...\n' "$number"
-	while IFS= read -r -d '' path; do
-		# A stage-3 entry is the incoming PR version. If it is absent, the PR
-		# deleted this path, so preserve that deletion.
-		if git cat-file -e ":3:$path" 2>/dev/null; then
-			git checkout --theirs -- "$path"
-			git add -- "$path"
-		else
-			git rm -- "$path"
-		fi
-	done < <(git diff --name-only -z --diff-filter=U)
-
-	[[ -z "$(git ls-files --unmerged)" ]] || die "could not resolve all conflicts for PR #$number; resolve and commit manually"
-	git add -A
-	git commit --no-edit
-	merged=$((merged + 1))
+	die "merge of PR #$number failed before a conflict state; branch left at $branch_name"
 done <<< "$prs"
 
 if (( skipped > 0 )); then
