@@ -22,6 +22,7 @@ dotfiles.default_mode = "symlink"
 "~/.local/bin/checkout" = "common/checkout.sh"
 "~/.local/bin/audidown" = "common/audidown.sh"
 "~/.local/bin/cosign-vulns" = "common/cosign_vulns.sh"
+"~/.local/bin/renobulk" = "common/renovate_bulk.sh"
 "~/.config/ghostty" = "common/ghostty"
 "~/.config/nvim" = "common/nvim"
 
