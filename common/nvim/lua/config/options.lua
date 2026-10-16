@@ -42,6 +42,24 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- EditorConfig is applied after FileType autocmds, so reapply Terramate's
+-- formatting options once buffer setup has completed.
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "terramate",
+	callback = function(args)
+		vim.schedule(function()
+			if not vim.api.nvim_buf_is_valid(args.buf) or vim.bo[args.buf].filetype ~= "terramate" then
+				return
+			end
+
+			local buffer_options = vim.bo[args.buf]
+			buffer_options.tabstop = 2
+			buffer_options.shiftwidth = 2
+			buffer_options.softtabstop = 2
+		end)
+	end,
+})
+
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		local path = vim.fn.argv(0) --[[@as string]]
