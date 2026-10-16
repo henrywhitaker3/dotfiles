@@ -73,10 +73,12 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.filetype.add({
 	extension = {
 		tf = "terraform",
+		tm = "terramate",
 	},
 	pattern = {
 		[".*%.tf.tmgen"] = "terraform",
 		[".*%.json.tmgen"] = "json",
+		[".*%.tm%.hcl"] = "terramate",
 	},
 })
 -- Search
