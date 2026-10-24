@@ -67,6 +67,11 @@ fi
 
 if [[ ! -f "$HOME/.skip_mise_shell" ]]; then
     eval "$($(brew --prefix)/bin/mise activate zsh)"
+    if [[ ! -f "$HOME/.local/share/zsh/site-functions/_mise" ]]; then
+        $(brew --prefix)/bin/mise completion --install zsh
+    fi
+    fpath+=('/Users/henry/.local/share/zsh/site-functions')
+    autoload -Uz compinit && compinit
 fi
 
 groot() {
