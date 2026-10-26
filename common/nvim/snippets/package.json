@@ -1,9 +1,21 @@
 {
-	"name": "personal-snippets",
-	"contributes": {
-		"snippets": [
-			{ "language": ["toml"], "path": "./toml.json" },
-			{ "language": ["yaml", "yaml.helm-values"], "path": "./yaml.json" }
-		]
-	}
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "toml"
+        ],
+        "path": "./toml.json"
+      },
+      {
+        "language": [
+          "yaml",
+          "yaml.helm-values",
+          "helm"
+        ],
+        "path": "./yaml.json"
+      }
+    ]
+  }
 }
