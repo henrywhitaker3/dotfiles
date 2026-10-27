@@ -25,6 +25,8 @@ dotfiles.default_mode = "symlink"
 "~/.local/bin/renobulk" = "common/renovate_bulk.sh"
 "~/.config/ghostty" = "common/ghostty"
 "~/.config/nvim" = "common/nvim"
+"~/.codex/AGENTS.md" = "common/AGENTS.md"
+"~/.claude/CLAUDE.md" = "common/AGENTS.md"
 
 [tasks.install]
 description = "Setup the system"
