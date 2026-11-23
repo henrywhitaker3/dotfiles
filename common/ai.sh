@@ -30,6 +30,7 @@ elif [[ "$runtime" == "claude" ]]; then
         -u "$(id -u):$(id -g)" \
         -v "$(pwd):/workspace" \
         -v "$HOME/.claude:/home/codex/.claude" \
+        -v "$HOME/.claude.json:/home/codex/.claude.json" \
         -v "$HOME/.cache/go-build:/home/codex/.cache/go-build" \
         -v "$HOME/go/pkg/mod:/home/codex/go/pkg/mod" \
         "$image" \
